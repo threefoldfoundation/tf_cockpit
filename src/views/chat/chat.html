@@ -1,0 +1,88 @@
+<section class="chat">
+  <v-container fluid class="py-0" fill-height>
+    <v-layout row wrap fill-height>
+      <v-flex md2 fill-height class="blue-grey darken-3">
+        <v-layout column fill-height>
+
+          <div>
+            <v-text-field dark outlined label="Search here..." prepend-inner-icon="fa-search" class="mx-2 mt-4 mb-0">
+            </v-text-field>
+          </div>
+          <v-flex style="overflow: auto; height:100%; position:relative">
+            <div class="pa-2" style="position:absolute; width: 100%">
+              <v-list three-line color="transparent" dark>
+                <v-list-item v-for="i in 10" :key="i" link>
+                  <v-list-item-icon>
+                    <v-avatar>
+                      <v-icon class="blue-grey">fa-user</v-icon>
+                    </v-avatar>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title class="title text-capitalize">John doe</v-list-item-title>
+                    <v-list-item-subtitle>
+                      Secondary line text Lorem ipsum dolor sit amet,
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <v-list-item-avatar v-if="i % 3 == 0">
+                    <v-avatar size="16" color="red">
+                      <span style="font-size: 8px">{{i/3}}</span>
+                    </v-avatar>
+                  </v-list-item-avatar>
+                </v-list-item>
+              </v-list>
+            </div>
+          </v-flex>
+
+        </v-layout>
+      </v-flex>
+      <v-flex md7 fill-height>
+        <v-layout column fill-height>
+          <div>
+            <v-toolbar color="blue-grey darken-3" dark>
+              <v-avatar size="8" color="green" class="mr-3">
+              </v-avatar>
+              John Doe
+            </v-toolbar>
+          </div>
+          <v-flex style="overflow: auto; height:100%; position:relative">
+            <div class="pa-2" style="position:absolute; width: 100%">
+              <v-layout column fill-height justify-end>
+                <v-layout class="mx-2" row justify-end :justify-end="j % 2" v-for="j in 1000" :key="j">
+                  <message :class="j%2? 'ml-5':'mr-5'" />
+                </v-layout>
+              </v-layout>
+            </div>
+          </v-flex>
+          <div class="grey lighten-2 px-2">
+            <v-text-field v-model="message" :append-outer-icon="message ? 'mdi-send' : 'mdi-microphone'"
+              clear-icon="mdi-close-circle" prepend-icon="" clearable label="Message" type="text"></v-text-field>
+          </div>
+        </v-layout>
+      </v-flex>
+      <v-flex md3 class="grey lighten-3">
+        <v-layout column fill-height justify-center align-center>
+          <v-avatar size="200">
+            <v-icon class="blue-grey white--text" size="100">fa-user</v-icon>
+          </v-avatar>
+          <h1 class="display-1 text-center mt-5">John Doe</h1>
+
+          <div class="my-5">
+              <v-layout row wrap>
+                  <v-list app class="transparent">
+                      <v-list-item v-for="(item, i) in items" :key="i" link>
+                        <v-list-item-icon>
+                          <v-icon>{{ item.icon }}</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title>{{item.name}}</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+              </v-layout>
+          </div>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+
+  </v-container>
+</section>

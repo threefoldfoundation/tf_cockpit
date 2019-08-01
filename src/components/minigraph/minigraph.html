@@ -1,0 +1,13 @@
+<section class="minigraph">
+  <v-card :color="`${color} darken-2`" dark>
+    <v-card-text class="pb-0">
+      <div style="position: absolute; top:5px">
+        <div class="display-1 font-weight-thin">{{data[data.length -1]}} {{append}}</div>
+        <div class="font-weight-thin">{{title}}</div>
+      </div>
+      <v-sparkline :value="data" :labels="[1,2,3,4,5,6,7]" color="rgba(255, 255, 255, .7)" padding="10"
+        stroke-linecap="round" :type="special? 'bar' : 'trend'" smooth>
+      </v-sparkline>
+    </v-card-text>
+  </v-card>
+</section>
