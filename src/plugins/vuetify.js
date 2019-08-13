@@ -5,8 +5,5 @@ import '@fortawesome/fontawesome-pro/css/all.css'
 Vue.use(Vuetify)
 
 export default new Vuetify({
-  iconfont: 'md',
-  theme: {
-    'darkaccent': '#ff0000'
-  }
+  iconfont: 'fa'
 })

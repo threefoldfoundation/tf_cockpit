@@ -10,6 +10,9 @@ export default {
       type: String,
       default: 'Sold last 7 days'
     },
+    value: {
+      default: '0'
+    },
     append: {
       type: String,
       default: ''
@@ -19,7 +22,6 @@ export default {
     }
   },
   mounted () {
-    this.data = this.getRandomData()
   },
   data () {
     return {
@@ -27,17 +29,6 @@ export default {
     }
   },
   methods: {
-    getRandomData: () => {
-      var data = []
-      for (let index = 0; index < 7; index++) {
-        var newValue = Math.floor(Math.random() * 1000)
-        if (index) {
-          newValue += data[index - 1]
-        }
-        data.push(newValue)
-      }
-      return data
-    }
   },
   computed: {
 

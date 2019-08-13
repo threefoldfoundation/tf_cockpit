@@ -1,9 +1,10 @@
-import minigraph from '../../components/minigraph'
-import capacitymap from '../../components/capacitymap'
-import tokenpricegraph from '../../components/tokenpricegraph'
+import miniGraph from '../../components/minigraph'
+import capacityMap from '../../components/capacitymap'
+import tokenPriceGraph from '../../components/tokenpricegraph'
+import lastTrades from '../../components/lasttrades'
 export default {
   name: 'home',
-  components: { minigraph, capacitymap, tokenpricegraph },
+  components: { miniGraph, capacityMap, tokenPriceGraph, lastTrades },
   props: [],
   data () {
     return {

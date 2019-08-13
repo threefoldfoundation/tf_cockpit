@@ -1,29 +1,16 @@
 <section class="capacitymap">
-  <v-card>
-    <v-card-title primary-title>
-      <v-layout row wrap>
-        <v-flex xs7>
+  <v-layout row wrap>
+    <v-flex d-flex md4>
+      <v-card style="width: 100%;">
+        <v-card-title primary-title class="red darken-2 py-3 mb-5 white--text">
+          <v-icon color="white" left>far fa-server</v-icon>
           Capacity finder
-        </v-flex>
-        <v-flex>
-          <span v-if="!showResult">Filters</span>
-          <span v-if="showResult">
-            <v-btn icon small @click="showResult = false">
-              <v-icon small>fa-arrow-left</v-icon>
-            </v-btn>
-            Results
-          </span>
-        </v-flex>
-      </v-layout>
-    </v-card-title>
-    <v-card-text>
-      <v-layout>
-        <v-flex d-flex xs7>
-          <geo-chart :data="[['United States', 44], ['Germany', 23], ['Brazil', 22]]" @click.native="showResult = true">
-          </geo-chart>
-        </v-flex>
-        <v-flex d-flex>
-          <v-layout column align-content-space-between v-if="!showResult">
+        </v-card-title>
+        <v-card-text>
+          <v-layout column align-content-space-between>
+            <geo-chart :data="[['United States', 44], ['Germany', 23], ['Brazil', 22]]"
+              @click.native="showResult = true">
+            </geo-chart>
             <v-flex>
               <v-select :items="farmers" label="Farmer" prepend-icon="fas fa-digging"></v-select>
             </v-flex>
@@ -40,13 +27,34 @@
               <capacityselector icon="fas fa-hdd" label="SRU" />
             </v-flex>
           </v-layout>
-          <v-layout column justify-space-around v-else>
-            <v-data-table show-expand item-key="name" :headers="headers" :items="items" :items-per-page="5" single-expand :expanded.sync="expanded">
+        </v-card-text>
+      </v-card>
+    </v-flex>
+    <v-flex d-flex>
+      <v-card style="width: 100%;">
+        <v-card-title primary-title class="red darken-3 py-3 mb-5 white--text">
+          Nodes
+        </v-card-title>
+        <v-card-text>
+          <v-flex class="ml-3">
+            <v-layout column justify-space-around>
+              <v-data-table show-expand item-key="name" :headers="headers" :items="items" :items-per-page="10"
+                single-expand :expanded.sync="expanded">
                 <template v-slot:expanded-item="{ headers }">
-                  <td :colspan="headers.length">Peek-a-boo!</td>
+                  <td :colspan="headers.length">
+                    <v-layout class="py-3" row wrap align-center>
+                      farmer name / link <br>
+                      node specifics <br>
+                      CU pricing <br>
+                      SU procing <br>
+                      Nu pricing <br>
+                      SLA
+
+                    </v-layout>
+                  </td>
                 </template>
-            </v-data-table>
-            <!-- <v-layout v-for="(item, i) in items" :key="i">
+              </v-data-table>
+              <!-- <v-layout v-for="(item, i) in items" :key="i">
               <v-flex xs3>
                 Name
               </v-flex>
@@ -54,9 +62,10 @@
                 {{item.name}}
               </v-flex>
             </v-layout> -->
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-card-text>
-  </v-card>
+            </v-layout>
+          </v-flex>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </section>
