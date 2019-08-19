@@ -1,3 +1,4 @@
+# TF Cockpit
 TF Cockpit is the main tool for personal management of everything to do with ThreeFold Grid
 
 Goal is to have a user friendly UI which can be used on desktop and mobile
@@ -19,3 +20,20 @@ More details can be found in the [TF Cockpit Mindmap](https://app.mindmup.com/ma
 New ThreeFold Tech web framework for [TF Cockpit creation](https://app.mindmup.com/map/_v2/d2bdbc709d8211e99a571f71f908147d)
 
 Owner:
+
+# Dev info
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
