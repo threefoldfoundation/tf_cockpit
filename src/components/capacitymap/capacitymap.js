@@ -24,7 +24,7 @@ export default {
       ],
       items: [
         {
-          name: 'Frozen Yogurt',
+          name: 'Node 1',
           calories: 159,
           fat: 6.0,
           carbs: 24,
@@ -34,7 +34,7 @@ export default {
           iron: '1%'
         },
         {
-          name: 'Ice cream sandwich',
+          name: 'Node 2',
           calories: 237,
           fat: 9.0,
           carbs: 37,
@@ -44,7 +44,7 @@ export default {
           iron: '1%'
         },
         {
-          name: 'Eclair',
+          name: 'Node 3',
           calories: 262,
           fat: 16.0,
           carbs: 23,
@@ -54,7 +54,67 @@ export default {
           iron: '7%'
         },
         {
-          name: 'Cupcake',
+          name: 'Node 4',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 5',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 6',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 7',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 8',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 9',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          sodium: 413,
+          calcium: '3%',
+          iron: '8%'
+        },
+        {
+          name: 'Node 10',
           calories: 305,
           fat: 3.7,
           carbs: 67,

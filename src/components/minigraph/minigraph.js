@@ -4,7 +4,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'green'
+      default: 'secondary'
     },
     title: {
       type: String,

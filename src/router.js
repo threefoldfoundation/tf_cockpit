@@ -20,14 +20,16 @@ export default new Router({
       name: 'Token',
       component: () => import(/* webpackChunkName: "token-page" */ './views/token'),
       meta: {
-        icon: 'far fa-coins'
+        icon: 'far fa-coins',
+        color: 'green'
       }
     }, {
       path: '/capacity',
       name: 'Capacity',
       component: () => import(/* webpackChunkName: "capacity-page" */ './views/capacity'),
       meta: {
-        icon: 'far fa-server'
+        icon: 'far fa-server',
+        color: 'red'
       }
     }, {
       path: '/chat',

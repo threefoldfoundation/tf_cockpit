@@ -4,10 +4,10 @@ export default {
   props: ['icon', 'label'],
   data () {
     return {
-      min: -50,
-      max: 90,
+      min: 0,
+      max: 100,
       slider: 40,
-      range: [-20, 70]
+      range: [25, 75]
     }
   },
   computed: {

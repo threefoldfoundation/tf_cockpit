@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-navigation-drawer mini-variant app class="blue-grey darken-2 rounded" fixed dark>
-      <v-toolbar color="primary" class="py-3">
-        <v-avatar color="white">
-          <v-icon color="blue-grey darken-2">fas fa-chart-area</v-icon>
+    <v-navigation-drawer mini-variant app class="primaryDarker rounded" fixed dark>
+      <v-toolbar color="secondary" class="py-3">
+        <v-avatar color="transparant">
+          <v-icon color="white">fas fa-chart-area</v-icon>
         </v-avatar>
       </v-toolbar>
       <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
@@ -16,11 +16,11 @@
       </v-list-item>
     </v-navigation-drawer>
 
-    <v-content class="grey lighten-4">
+    <v-content>
       <v-container>
         <v-layout class="pt-3 px-4">
           <h1 class="headline text-uppercase">
-            <span>Jimber</span>
+            <span>TFT</span>
             <span class="font-weight-light">DASHBOARD</span>
           </h1>
           <v-spacer />

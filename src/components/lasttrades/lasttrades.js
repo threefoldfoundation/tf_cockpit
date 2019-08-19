@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex'
+
 export default {
   name: 'lasttrades',
   components: {},
@@ -8,12 +10,10 @@ export default {
     }
   },
   computed: {
-
   },
   mounted () {
-
+    // this.getTrades()
   },
   methods: {
-
   }
 }

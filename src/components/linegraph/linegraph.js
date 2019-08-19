@@ -14,7 +14,7 @@ export default {
       .getContext('2d')
       .createLinearGradient(0, 0, 0, 400)
 
-    this.gradient.addColorStop(0, colors.blueGrey.darken2)
+    this.gradient.addColorStop(0, this.$vuetify.theme.currentTheme.secondary)
     this.gradient.addColorStop(1, 'rgba(255,255,255,0.25)')
     // this.chartData is created in the mixin.
     // If you want to pass options please create a local options object
@@ -22,7 +22,7 @@ export default {
       elements: {
         line: {
           backgroundColor: this.gradient,
-          borderColor: colors.blueGrey.darken2,
+          borderColor: this.$vuetify.theme.currentTheme.secondary,
           fill: true,
           borderWidth: 5,
           tension: 0
