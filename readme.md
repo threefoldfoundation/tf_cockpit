@@ -19,21 +19,28 @@ More details can be found in the [TF Cockpit Mindmap](https://app.mindmup.com/ma
 
 New ThreeFold Tech web framework for [TF Cockpit creation](https://app.mindmup.com/map/_v2/d2bdbc709d8211e99a571f71f908147d)
 
-Owner:
+Owner: @zaibon @jdelrue
 
-# Dev info
+## Specifications
 
-## Project setup
+you can find more detail information and specification in the [specs directory](specs)
+
+## Frontend getting started
+
+### Project setup
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn build
 ```
