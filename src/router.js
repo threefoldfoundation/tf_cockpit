@@ -13,14 +13,14 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        icon: 'far fa-home'
+        icon: 'fas fa-home'
       }
     }, {
       path: '/token',
       name: 'Token',
       component: () => import(/* webpackChunkName: "token-page" */ './views/token'),
       meta: {
-        icon: 'far fa-coins',
+        icon: 'fas fa-coins',
         color: 'green'
       }
     }, {
@@ -28,7 +28,7 @@ export default new Router({
       name: 'Capacity',
       component: () => import(/* webpackChunkName: "capacity-page" */ './views/capacity'),
       meta: {
-        icon: 'far fa-server',
+        icon: 'fas fa-server',
         color: 'red'
       }
     }, {
@@ -36,7 +36,7 @@ export default new Router({
       name: 'Support',
       component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
       meta: {
-        icon: 'far fa-comment'
+        icon: 'fas fa-comment'
       }
     }
   ]

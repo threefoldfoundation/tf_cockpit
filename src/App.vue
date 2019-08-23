@@ -28,7 +28,7 @@
             <template v-slot:badge>
               <span>2</span>
             </template>
-            <v-icon color="grey lighten-1">far fa-bell</v-icon>
+            <v-icon color="grey lighten-1">fas fa-bell</v-icon>
           </v-badge>
         </v-layout>
       </v-container>

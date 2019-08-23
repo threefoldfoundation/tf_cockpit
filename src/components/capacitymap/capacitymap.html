@@ -3,12 +3,12 @@
     <v-flex d-flex md4>
       <v-card style="width: 100%;">
         <v-card-title primary-title class="primaryDarker py-3 mb-5 white--text">
-          <v-icon color="white" left>far fa-server</v-icon>
+          <v-icon color="white" left>fas fa-server</v-icon>
           Capacity finder
         </v-card-title>
         <v-card-text>
           <v-layout column align-content-space-between>
-            <geo-chart :data="[['United States', 44], ['Germany', 23], ['Brazil', 22]]"
+            <geo-chart :colors="[$vuetify.theme.currentTheme.secondary]" :data="[['United States', 44], ['Germany', 23], ['Brazil', 22]]"
               @click.native="showResult = true">
             </geo-chart>
             <v-flex>
