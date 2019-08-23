@@ -1,0 +1,26 @@
+@startuml
+title TF Cockpit general architecture 
+
+component user
+
+cloud Anywhere {
+    component frontend
+}
+
+cloud Threebot {
+    interface "gedis actor" as gedis
+    interface openresty
+    component BCDB
+}
+
+node Farm {
+    component node
+}
+
+openresty .. gedis
+gedis .. BCDB
+frontend -- openresty : websocket
+node -- gedis : tcp
+user -- frontend: https
+
+@enduml
