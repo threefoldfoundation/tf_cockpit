@@ -1,0 +1,33 @@
+<section class="scrollablecard">
+  <v-card style="position: relative; height: 100%; width: 100%;">
+    <v-card-title primary-title class="primaryDarker py-3 white--text">
+      <v-icon dark left>{{icon}}</v-icon>
+      {{title}}
+    </v-card-title>
+    <v-card-text class="pa-2 pt-0" style="position: relative; height: 100%; width: 100%; overflow: hidden;">
+      <div style="position: relative; width: 100%; height: calc(100% - 56px); overflow: auto;">
+        <div style="position: absolute; height:100%; width: 100%;" class="pa-1">
+          <slot>
+            <v-card class="my-2" v-for="i in 100" :key="i">
+              <v-card-text>
+                <v-row class="px-2" align="center">
+                  <v-avatar color="secondary">
+                    <v-icon color="white">fas fa-exchange-alt</v-icon>
+                  </v-avatar>
+                  <v-col class="py-0">
+                    <div>Trade info</div>
+                    <div>Even more info</div>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </slot>
+        </div>
+      </div>
+
+    </v-card-text>
+
+  </v-card>
+</section>
+
+<!-- -->

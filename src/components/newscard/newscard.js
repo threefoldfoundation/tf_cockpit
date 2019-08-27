@@ -1,7 +1,6 @@
-import { mapActions } from 'vuex'
 import scrollablecard from '../scrollablecard'
 export default {
-  name: 'lasttrades',
+  name: 'newscard',
   components: { scrollablecard },
   props: [],
   data () {
@@ -10,10 +9,12 @@ export default {
     }
   },
   computed: {
+
   },
   mounted () {
-    // this.getTrades()
+
   },
   methods: {
+
   }
 }

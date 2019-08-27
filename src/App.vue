@@ -16,12 +16,12 @@
       </v-list-item>
     </v-navigation-drawer>
 
-    <v-content>
-      <v-container>
+    <v-content class="content">
+      <!-- <v-container>
         <v-layout class="pt-3 px-4">
           <h1 class="headline text-uppercase">
-            <span>TFT</span>
-            <span class="font-weight-light">DASHBOARD</span>
+            <span>TF</span>
+            <span class="font-weight-light"> cockpit</span>
           </h1>
           <v-spacer />
           <v-badge right color="grey" class="mr-4 align-self-center">
@@ -31,7 +31,7 @@
             <v-icon color="grey lighten-1">fas fa-bell</v-icon>
           </v-badge>
         </v-layout>
-      </v-container>
+      </v-container> -->
       <router-view class="ma-2 ml-4 mr-3"></router-view>
     </v-content>
   </v-app>
@@ -51,10 +51,18 @@ export default {
 </script>
 
 <style lang="scss">
+.theme--light.v-application {
+  background: none !important;
+}
 .rounded {
   border-radius: 0 15px 15px 0 !important;
 }
 .v-card {
   border-radius: 15px !important;
+}
+.content {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 </style>
