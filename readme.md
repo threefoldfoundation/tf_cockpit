@@ -1,4 +1,4 @@
-# TF Cockpit
+# TF Cockpit [![Actions Status](https://github.com/threefoldtech/tf_cockpit/workflows/Build/badge.svg)](https://github.com/threefoldtech/tf_cockpit/actions)
 TF Cockpit is the main tool for personal management of everything to do with ThreeFold Grid
 
 Goal is to have a user friendly UI which can be used on desktop and mobile
