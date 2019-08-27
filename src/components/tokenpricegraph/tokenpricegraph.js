@@ -8,7 +8,7 @@ export default {
       dataCollection: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         datasets: [{
-          data: [12, 19, 3, 5, 2, 3]
+          data: [2, 1, 3, 5, 9, 12]
         }]
       }
     }

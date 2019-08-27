@@ -1,0 +1,17 @@
+<section class="newscard">
+  <scrollablecard style="height: 100%" title="News" icon="fas fa-bullhorn">
+    <v-card class="my-2" v-for="i in 100" :key="i">
+      <v-card-text>
+        <v-row class="px-2" align="center">
+          <v-avatar color="secondary">
+            <v-icon color="white">fas fa-bullhorn</v-icon>
+          </v-avatar>
+          <v-col class="py-0">
+            <div>News title</div>
+            <div>News description</div>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+  </scrollablecard>
+</section>
