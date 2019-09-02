@@ -2,6 +2,10 @@
 
 In this document I will try to explain what are the different feature we want to offer to a farmer to manage its farm.
 
+Mockups / func specs
+
+https://docs.google.com/document/d/1ktOOPWeFUrdCRNIk2gMWwcOTGLt5Sgj6xps36EzhwOc/edit#heading=h.1xtll19lvo4x
+
 ## Features
 
 - [Edit public information about his farm](edit-farm-information)
