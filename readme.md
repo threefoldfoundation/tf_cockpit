@@ -10,7 +10,7 @@ There will be 2 main sections:
   - TF Tokens Overview
   
 - Hands on (password protected)
-  - Trade: Integrated Marketplace TFT Sales
+  - Trade: Integrated Marketplace TFT Sales (not in version 1)
   - Operate: Farmers
   - Use: The Grid
   - Support
