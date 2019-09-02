@@ -1,4 +1,4 @@
-# TF Cockpit
+# TF Cockpit [![Actions Status](https://github.com/threefoldtech/tf_cockpit/workflows/Build/badge.svg)](https://github.com/threefoldtech/tf_cockpit/actions)
 TF Cockpit is the main tool for personal management of everything to do with ThreeFold Grid
 
 Goal is to have a user friendly UI which can be used on desktop and mobile
@@ -10,7 +10,7 @@ There will be 2 main sections:
   - TF Tokens Overview
   
 - Hands on (password protected)
-  - Trade: Integrated Marketplace TFT Sales
+  - Trade: Integrated Marketplace TFT Sales (not in version 1)
   - Operate: Farmers
   - Use: The Grid
   - Support
