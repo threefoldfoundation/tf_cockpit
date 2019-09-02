@@ -4,11 +4,11 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'secondary'
+      default: 'secondary darken-2 '
     },
     title: {
       type: String,
-      default: 'Sold last 7 days'
+      default: ''
     },
     value: {
       default: '0'

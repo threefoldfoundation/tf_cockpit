@@ -1,19 +1,47 @@
 <template>
   <v-app>
-    <v-navigation-drawer mini-variant app class="primaryDarker rounded" fixed dark>
-      <v-toolbar color="secondary" class="py-3">
+    <v-navigation-drawer mini-variant app class="primary darken-2 rounded" fixed dark>
+      <v-toolbar color="secondary darken-2 " class="py-3">
         <v-avatar color="transparant">
           <v-icon color="white">fas fa-chart-area</v-icon>
         </v-avatar>
       </v-toolbar>
-      <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
-        <v-list-item-icon>
-          <v-icon>{{ route.meta.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <v-layout fill-height column>
+        <v-flex>
+          <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
+            <v-list-item-icon>
+              <v-icon>{{ route.meta.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-flex>
+        <v-spacer></v-spacer> 
+        <v-flex>
+          <v-layout column class="fill-height" justify-end>
+          <v-spacer></v-spacer> 
+          <v-flex>
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>fas fa-cog</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="title text-capitalize">Settings</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>fas fa-user-circle</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="title text-capitalize">Settings</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
     </v-navigation-drawer>
 
     <v-content class="content">
@@ -31,8 +59,8 @@
             <v-icon color="grey lighten-1">fas fa-bell</v-icon>
           </v-badge>
         </v-layout>
-      </v-container> -->
-      <router-view class="ma-2 ml-4 mr-3"></router-view>
+      </v-container>-->
+      <router-view class></router-view>
     </v-content>
   </v-app>
 </template>
