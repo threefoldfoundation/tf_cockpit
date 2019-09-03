@@ -9,4 +9,4 @@ Here you find all mockups for TF Cockpit:
 [TF Cockpit Mockup: Buy tft](https://docs.google.com/drawings/d/1BwxN8OEB1XDIbB-E_7pzXQVBOUxLnGu4uOYTdaKPytI/edit?usp=sharing)
 
 
-[TF Cockpit Mockup: Token and Grid (Revised)](https://docs.google.com/presentation/d/1n0la5OF-DJPm_22s49bBIwBAtjyDfvLtPTANs_zmoiw/edit#slide=id.g41acf61e69_0_10)
+[TF Cockpit overview & module mock up](https://docs.google.com/presentation/d/1n0la5OF-DJPm_22s49bBIwBAtjyDfvLtPTANs_zmoiw/edit#slide=id.g41acf61e69_0_10)
