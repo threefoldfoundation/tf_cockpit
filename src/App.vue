@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer mini-variant app class="primary darken-2 rounded" dark>
+    <v-navigation-drawer mini-variant app class="primary rounded" dark>
       <v-layout column fill-height justify-end>
         <div>
           <v-toolbar color="secondary darken-2 " class="py-3">
@@ -94,5 +94,8 @@ export default {
 }
 .v-card {
   border-radius: 15px !important;
+}
+.v-card__title {
+  font-size: 18px!important;
 }
 </style>
