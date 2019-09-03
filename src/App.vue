@@ -35,7 +35,7 @@
       <router-view></router-view>
     </v-content>
 
-    <v-dialog v-model="showDialog" max-width="500px">
+    <v-dialog v-model="showDialog" max-width="500px" scrollable>
       <v-card>
         <v-toolbar color="secondary darken-2" class="mb-3 text-uppercase" dark>
           <v-card-title>{{dilogTitle}}</v-card-title>
@@ -45,7 +45,6 @@
           </v-btn>
         </v-toolbar>
         <v-card-text>
-          {{dialogimage}}
           <v-img :src="dialogImage" v-if="dialogImage"/>
           <p class="body-1 mt-4">
             {{dialogBody}}
@@ -85,7 +84,7 @@ export default {
         this.dialogBody = data.body
         this.dialogImage = data.image
         this.showDialog = true
-        if (data.actions && data.actions.lenght) {
+        if (data.actions && data.actions.length) {
           this.dialogActions = data.actions
         }
       }
