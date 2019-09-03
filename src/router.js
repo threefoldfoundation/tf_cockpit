@@ -40,15 +40,16 @@ export default new Router({
       }
     }, {
       path: '/farmsettings',
-      name: 'Support',
-      component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+      name: 'FarmSettings',
+      component: () => import(/* webpackChunkName: "chat-page" */ './views/farmsettings'),
       meta: {
         icon: 'fas fa-cog'
       }
-    }, {
-      path: '/farmmanagemt',
-      name: 'Support',
-      component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+    },
+    {
+      path: '/farmmanagement',
+      name: 'FarmManagement',
+      component: () => import(/* webpackChunkName: "chat-page" */ './views/farmmanagement'),
       meta: {
         icon: 'fas fa-user-circle'
       }
