@@ -47,7 +47,7 @@
           <v-flex style="overflow: auto; height:100%; position:relative">
             <div class="pa-2" style="position:absolute; width: 100%">
               <v-layout column fill-height justify-end>
-                <v-layout class="mx-2" row justify-end :justify-end="j % 2" v-for="j in 1000" :key="j">
+                <v-layout class="mx-2" row justify-end :justify-end="j % 2" v-for="j in 50" :key="j">
                   <message :class="j%2? 'ml-5':'mr-5'" />
                 </v-layout>
               </v-layout>

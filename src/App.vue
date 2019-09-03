@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-navigation-drawer mini-variant app class="primary rounded" dark>
       <v-layout column fill-height justify-end>
         <div>
@@ -86,14 +86,12 @@ export default {
 </script>
 
 <style lang="scss">
-.theme--light.v-application {
-  background: none !important;
-}
 .rounded {
   border-radius: 0 15px 15px 0 !important;
 }
 .v-card {
   border-radius: 15px !important;
+  // background: #cccbcb !important;
 }
 .v-card__title {
   font-size: 18px!important;

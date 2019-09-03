@@ -1,14 +1,14 @@
 <section class="lasttrades">
   <scrollablecard style="height: 100%" title="Last trades" icon="fas fa-exchange-alt">
-    <v-card class="my-2 grey lighten-5" v-for="i in 100" :key="i" @click="showDialog = true">
+    <v-card class="my-2 grey lighten-5" v-for="i in 50" :key="i" @click="showDialog = true">
       <v-card-text>
-        <v-row class="px-2" align="center">
+        <v-row class="px-2">
           <v-avatar color="secondary darken-2 ">
             <v-icon color="white">fas fa-exchange-alt</v-icon>
           </v-avatar>
-          <v-col class="py-0">
+          <v-col class="py-0 text-truncate  d-inline-block">
             <div>Block #{{block.height}}</div>
-            <div>ID: {{block.id}}</div>
+            <div class="">ID: {{block.id}}</div>
           </v-col>
         </v-row>
       </v-card-text>
