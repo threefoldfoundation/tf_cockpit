@@ -1,6 +1,6 @@
 <section class="lasttrades">
     <scrollablecard style="height: 100%" title="Last trades" icon="fas fa-exchange-alt">
-        <v-card class="my-2" v-for="i in 100" :key="i">
+        <v-card class="my-2 grey lighten-5" v-for="i in 100" :key="i" @click="openDialog">
             <v-card-text>
                 <v-row class="px-2" align="center">
                     <v-avatar color="secondary darken-2 ">
