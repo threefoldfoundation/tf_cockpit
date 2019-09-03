@@ -1,15 +1,12 @@
 <section class="farmmanagement">
-  <v-container fluid>
     <v-row class="ma-3">
       <v-card style="width: 100%;">
         <v-card-title primary-title class="primary darken-2 py-3 mb-5 white--text">
           My Nodes
           <v-spacer />
-
-
           <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
             <template v-slot:activator="{ on }">
-              <v-badge v-model="showBadge" color="red">
+              <v-badge overlap v-model="showBadge" color="red">
                 <template v-slot:badge>
                   <span>1</span>
                 </template>
@@ -95,5 +92,4 @@
         </v-card-text>
       </v-card>
     </v-row>
-  </v-container>
 </section>

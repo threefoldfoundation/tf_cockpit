@@ -13,7 +13,8 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        icon: 'fas fa-home'
+        icon: 'fas fa-home',
+        position: 'top'
       }
     }, {
       path: '/token',
@@ -21,7 +22,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "token-page" */ './views/token'),
       meta: {
         icon: 'fas fa-coins',
-        color: 'green'
+        position: 'top'
       }
     }, {
       path: '/capacity',
@@ -29,21 +30,23 @@ export default new Router({
       component: () => import(/* webpackChunkName: "capacity-page" */ './views/capacity'),
       meta: {
         icon: 'fas fa-server',
-        color: 'red'
+        position: 'top'
       }
     }, {
       path: '/chat',
       name: 'Support',
       component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
       meta: {
-        icon: 'fas fa-comment'
+        icon: 'fas fa-comment',
+        position: 'top'
       }
     }, {
       path: '/farmsettings',
       name: 'FarmSettings',
       component: () => import(/* webpackChunkName: "chat-page" */ './views/farmsettings'),
       meta: {
-        icon: 'fas fa-cog'
+        icon: 'fas fa-cog',
+        position: 'bottom'
       }
     },
     {
@@ -51,7 +54,8 @@ export default new Router({
       name: 'FarmManagement',
       component: () => import(/* webpackChunkName: "chat-page" */ './views/farmmanagement'),
       meta: {
-        icon: 'fas fa-user-circle'
+        icon: 'fas fa-user-circle',
+        position: 'bottom'
       }
     }
   ]

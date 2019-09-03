@@ -1,19 +1,46 @@
 <template>
   <v-app>
-    <v-navigation-drawer mini-variant app class="primary darken-2 rounded" fixed dark>
-      <v-toolbar color="secondary darken-2 " class="py-3">
-        <v-avatar color="transparant">
-          <v-icon color="white">fas fa-chart-area</v-icon>
-        </v-avatar>
-      </v-toolbar>
-      <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
-        <v-list-item-icon>
-          <v-icon>{{ route.meta.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+    <v-navigation-drawer mini-variant app class="primary darken-2 rounded" dark>
+      <v-layout column fill-height justify-end>
+        <div>
+          <v-toolbar color="secondary darken-2 " class="py-3">
+          <v-avatar color="transparant">
+            <v-icon color="white">fas fa-chart-area</v-icon>
+          </v-avatar>
+        </v-toolbar>
+        </div>
+        <div>
+          <v-list-item
+            v-for="(route, i) in routes.filter(r => r.meta.position == 'top')"
+            :key="i"
+            :to="route"
+            active-class="secondary--text"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ route.meta.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </div>
+        <v-spacer></v-spacer>
+        <div>
+          <v-list-item
+            v-for="(route, i) in routes.filter(r => r.meta.position == 'bottom')"
+            :key="i"
+            :to="route"
+            active-class="secondary--text"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ route.meta.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </div>
+      </v-layout>
     </v-navigation-drawer>
 
     <v-content class="content">
