@@ -6,42 +6,14 @@
           <v-icon color="white">fas fa-chart-area</v-icon>
         </v-avatar>
       </v-toolbar>
-      <v-layout fill-height column>
-        <v-flex>
-          <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
-            <v-list-item-icon>
-              <v-icon>{{ route.meta.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-flex>
-        <v-spacer></v-spacer> 
-        <v-flex>
-          <v-layout column class="fill-height" justify-end>
-          <v-spacer></v-spacer> 
-          <v-flex>
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon>fas fa-cog</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title class="title text-capitalize">Settings</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon>fas fa-user-circle</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title class="title text-capitalize">Settings</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-flex>
-          </v-layout>
-        </v-flex>
-      </v-layout>
+      <v-list-item v-for="(route, i) in routes" :key="i" link @click="$router.push(route)">
+        <v-list-item-icon>
+          <v-icon>{{ route.meta.icon }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-navigation-drawer>
 
     <v-content class="content">

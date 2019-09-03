@@ -2,14 +2,22 @@
   <scrollablecard style="height: 100%" title="News" icon="fas fa-bullhorn">
     <v-card class="my-2" v-for="i in 100" :key="i">
       <v-card-text>
-        <v-row class="px-2" align="center">
-          <v-avatar color="secondary darken-2 ">
-            <v-icon color="white">fas fa-bullhorn</v-icon>
+        <v-row class="px-2">
+          <v-avatar color="secondary darken-2">
+            <v-img src="https://www.skillsforgrowth.org.uk/images/headerimg/young-person.jpg"></v-img>
           </v-avatar>
-          <v-col class="py-0">
-            <div>News title</div>
-            <div>News description</div>
-          </v-col>
+          <v-flex xs8>
+            <v-col class="py-0">
+              <div>
+                <h2>Time to act</h2>
+                <span class="body-2">ThreeFold Grid</span>
+                <p class="body-1">We are looking for 20 young and passionate people...</p>
+              </div>
+            </v-col>
+          </v-flex>
+          <!-- <v-col class="red">
+
+          </v-col> -->
         </v-row>
       </v-card-text>
     </v-card>

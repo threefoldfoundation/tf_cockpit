@@ -38,6 +38,20 @@ export default new Router({
       meta: {
         icon: 'fas fa-comment'
       }
+    }, {
+      path: '/farmsettings',
+      name: 'Support',
+      component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+      meta: {
+        icon: 'fas fa-cog'
+      }
+    }, {
+      path: '/farmmanagemt',
+      name: 'Support',
+      component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+      meta: {
+        icon: 'fas fa-user-circle'
+      }
     }
   ]
 })

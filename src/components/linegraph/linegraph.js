@@ -33,15 +33,11 @@ export default {
       },
       scales: {
         yAxes: [{
-          gridLines: {
-            color: colors.blueGrey.lighten5
-          }
+          display: false
         }],
         xAxes: [{
           gridLines: {
-            gridLines: {
-              color: colors.blueGrey.lighten5
-            }
+            display: false
           }
         }]
       },
