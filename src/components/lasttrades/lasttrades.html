@@ -1,17 +1,37 @@
 <section class="lasttrades">
-    <scrollablecard style="height: 100%" title="Last trades" icon="fas fa-exchange-alt">
-        <v-card class="my-2 grey lighten-5" v-for="i in 100" :key="i" @click="openDialog">
-            <v-card-text>
-                <v-row class="px-2" align="center">
-                    <v-avatar color="secondary darken-2 ">
-                        <v-icon color="white">fas fa-exchange-alt</v-icon>
-                    </v-avatar>
-                    <v-col class="py-0">
-                        <div>Block #355674</div>
-                        <div>ID:a9285c456f4086e4fc7e73096fb660a8e0b22ab4f2617ab624dea030a82e4832</div>
-                    </v-col>
-                </v-row>
-            </v-card-text>
-        </v-card>
-    </scrollablecard>
+  <scrollablecard style="height: 100%" title="Last trades" icon="fas fa-exchange-alt">
+    <v-card class="my-2 grey lighten-5" v-for="i in 100" :key="i" @click="showDialog = true">
+      <v-card-text>
+        <v-row class="px-2" align="center">
+          <v-avatar color="secondary darken-2 ">
+            <v-icon color="white">fas fa-exchange-alt</v-icon>
+          </v-avatar>
+          <v-col class="py-0">
+            <div>Block #{{block.height}}</div>
+            <div>ID: {{block.id}}</div>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+  </scrollablecard>
+
+  <v-dialog v-model="showDialog" max-width="600px" scrollable>
+    <v-card>
+      <v-toolbar color="secondary darken-2" class="mb-3 text-uppercase" dark>
+        <v-card-title>Block #{{block.height}}</v-card-title>
+        <v-spacer />
+        <v-btn icon class="mr-0" @click="showDialog = false">
+          <v-icon>fas fa-times</v-icon>
+        </v-btn>
+      </v-toolbar>
+      <v-card-text>
+        <blockInfo :value="block" />
+      </v-card-text>
+
+      <v-card-actions>
+        <div class="flex-grow-1"></div>
+        <v-btn text @click="showDialog=false">Ok</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </section>

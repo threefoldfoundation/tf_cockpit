@@ -1,0 +1,50 @@
+<section class="blockinfo">
+  <v-col>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">Height</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <span>{{value.height}}</span>
+      </v-flex>
+    </v-row>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">ID</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <v-tooltip bottom>
+          <template v-slot:activator="{on}">
+            <span v-on='on'>{{value.id}}</span>
+          </template>
+          <span>{{value.id}}</span>
+        </v-tooltip>
+      </v-flex>
+    </v-row>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">Parent Block ID</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <v-tooltip bottom>
+          <template v-slot:activator="{on}">
+            <span v-on='on'>{{value.parentBlockId}}</span>
+          </template>
+          <span>{{value.parentBlockId}}</span>
+        </v-tooltip>
+      </v-flex>
+    </v-row>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">Time</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <span>{{value.time}}</span>
+      </v-flex>
+    </v-row>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">Block Confirmations</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <span>{{value.blockConfirmations}}</span>
+      </v-flex>
+    </v-row>
+    <v-row>
+      <v-flex xs3 class="text-right pr-2">Active BlockStake</v-flex>
+      <v-flex xs9 class="text-truncate font-weight-bold">
+        <span>{{value.blockStake}}</span>
+      </v-flex>
+    </v-row>
+  </v-col>
+</section>
