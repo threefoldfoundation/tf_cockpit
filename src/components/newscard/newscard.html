@@ -1,24 +1,27 @@
 <section class="newscard">
   <scrollablecard style="height: 100%" title="News" icon="fas fa-bullhorn">
-    <v-card class="my-2" v-for="i in 100" :key="i">
+    <v-card class="my-2 grey lighten-5" v-for="i in 100" :key="i" @click="showDialog">
       <v-card-text>
         <v-row class="px-2">
           <v-avatar color="secondary darken-2">
             <v-img src="https://www.skillsforgrowth.org.uk/images/headerimg/young-person.jpg"></v-img>
           </v-avatar>
-          <v-flex xs8>
+          <v-flex class="py-0">
             <v-col class="py-0">
               <div>
                 <h2>Time to act</h2>
                 <span class="body-2">ThreeFold Grid</span>
-                <p class="body-1">We are looking for 20 young and passionate people...</p>
+                <p class="body-1 pb-0 mb-0">We are looking for 20 young and passionate people... </p>
+                <v-btn text small style="margin-left: -12px">[Read more]</v-btn>
               </div>
             </v-col>
           </v-flex>
-          <!-- <v-col class="red">
-
-          </v-col> -->
         </v-row>
+        <v-layout row wrap>
+          <div class="flex-grow-1"></div>
+          <v-btn text>like</v-btn>
+          <v-btn text>Share</v-btn>
+        </v-layout>
       </v-card-text>
     </v-card>
   </scrollablecard>

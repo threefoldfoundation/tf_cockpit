@@ -9,7 +9,7 @@ export default {
   props: [],
   data () {
     return {
-
+      showBlockDialog: true
     }
   },
   computed: {
@@ -19,6 +19,8 @@ export default {
 
   },
   methods: {
-
+    showDialog () {
+      this.showBlockDialog = true
+    }
   }
 }
