@@ -22,7 +22,7 @@ export default {
         { text: 'Version', value: 'fat' },
         { text: 'ID', value: 'carbs' },
         { text: 'Farmer', value: 'protein' },
-        { text: 'Description', value: 'iron' }
+        { text: 'Status', value: 'status', align: 'center' }
       ],
       items: [
         {
@@ -33,7 +33,7 @@ export default {
           protein: 4.0,
           sodium: 87,
           calcium: '14%',
-          iron: '1%'
+          status: 'Active'
         },
         {
           name: 'Node 2',
@@ -43,7 +43,7 @@ export default {
           protein: 4.3,
           sodium: 129,
           calcium: '8%',
-          iron: '1%'
+          status: 'Active'
         },
         {
           name: 'Node 3',
@@ -53,7 +53,7 @@ export default {
           protein: 6.0,
           sodium: 337,
           calcium: '6%',
-          iron: '7%'
+          status: 'Not active'
         },
         {
           name: 'Node 4',
@@ -63,7 +63,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         },
         {
           name: 'Node 5',
@@ -73,7 +73,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         },
         {
           name: 'Node 6',
@@ -83,7 +83,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Not active'
         },
         {
           name: 'Node 7',
@@ -93,7 +93,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         },
         {
           name: 'Node 8',
@@ -103,7 +103,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         },
         {
           name: 'Node 9',
@@ -113,7 +113,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         },
         {
           name: 'Node 10',
@@ -123,7 +123,7 @@ export default {
           protein: 4.3,
           sodium: 413,
           calcium: '3%',
-          iron: '8%'
+          status: 'Active'
         }
       ]
     }
@@ -135,6 +135,9 @@ export default {
 
   },
   methods: {
-
+    getColor (status) {
+      if (status === 'Active') return 'green'
+      else return 'red'
+    }
   }
 }

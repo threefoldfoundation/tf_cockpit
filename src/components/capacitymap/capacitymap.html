@@ -44,6 +44,11 @@
             <v-layout column justify-space-around>
               <v-data-table show-expand item-key="name" :search="searchNodes" :headers="headers" :items="items" :items-per-page="10"
                 single-expand :expanded.sync="expanded">
+                <template v-slot:item.status="{ item }">
+                  <p class="text-center mt-1 mb-0 ">
+                    <v-chip :color="getColor(item.status)" dark>{{ item.status }}</v-chip>
+                  </p>
+                  </template>
                 <template v-slot:expanded-item="{ headers }">
                   <td :colspan="headers.length">
                     <nodeinfo/>
