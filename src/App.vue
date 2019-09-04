@@ -4,10 +4,10 @@
       <v-layout column fill-height justify-end>
         <div>
           <v-toolbar color="secondary darken-2 " class="py-3">
-          <v-avatar color="transparant">
-            <v-icon color="white">fas fa-chart-area</v-icon>
-          </v-avatar>
-        </v-toolbar>
+            <v-avatar>
+              <v-img src="./assets/logo.jpg" />
+            </v-avatar>
+          </v-toolbar>
         </div>
         <div>
           <v-list-item
@@ -44,22 +44,20 @@
     </v-navigation-drawer>
 
     <v-content class="content">
-      <!-- <v-container>
-        <v-layout class="pt-3 px-4">
-          <h1 class="headline text-uppercase">
+      <v-col>
+        <v-row class="pa-4 mx-1">
+          <h1 class="headline pt-3 text-uppercase">
             <span>TF</span>
             <span class="font-weight-light">cockpit</span>
+            <span class="title font-weight-light">- {{$route.name}}</span>
           </h1>
           <v-spacer />
-          <v-badge right color="grey" class="mr-4 align-self-center">
-            <template v-slot:badge>
-              <span>2</span>
-            </template>
-            <v-icon color="grey lighten-1">fas fa-bell</v-icon>
-          </v-badge>
-        </v-layout>
-      </v-container>-->
-      <router-view></router-view>
+          <v-btn icon>
+            <v-icon>fas fa-user-circle</v-icon>
+          </v-btn>
+        </v-row>
+        <router-view></router-view>
+      </v-col>
     </v-content>
   </v-app>
 </template>
@@ -86,14 +84,16 @@ export default {
 </script>
 
 <style lang="scss">
+.content {
+  background: #fafafa !important;
+}
 .rounded {
   border-radius: 0 15px 15px 0 !important;
 }
 .v-card {
   border-radius: 15px !important;
-  // background: #cccbcb !important;
 }
 .v-card__title {
-  font-size: 18px!important;
+  font-size: 18px !important;
 }
 </style>

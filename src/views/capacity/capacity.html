@@ -1,44 +1,43 @@
 <section class="capacity">
-  <v-container grid-list-lg fill-height class="pt-1">
-    <v-layout column>
-      <v-layout row wrap class="px-4">
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="900" title="Registered 3Nodes" />
-        </v-flex>
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="526" title="3Nodes online" />
-        </v-flex>
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="21" title="Countries"/>
-        </v-flex>
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="64" title="Farms" />
-        </v-flex>
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="14.6K" title="Cores online" />
-        </v-flex>
-        <v-flex md2 xs6 d-flex>
-          <miniGraph value="14.6K" title="Storage capacity online" />
-        </v-flex>
-      </v-layout>
+  <v-row class="px-2">
+    <v-flex md10>
+      <v-col>
+        <v-row>
+          <v-flex md3 d-flex class="px-2">
+            <miniGraph value="900" title="Registered 3Nodes" />
+          </v-flex>
+          <v-flex md3 d-flex class="px-2">
+            <miniGraph value="526" title="3Nodes online" />
+          </v-flex>
+          <v-flex md3 d-flex class="px-2">
+            <miniGraph value="21" title="Countries" />
+          </v-flex>
+          <v-flex md3 d-flex class="px-2">
+            <miniGraph value="64" title="Farms" />
+          </v-flex>
+          <v-flex md3 d-flex class="px-2">
+          </v-flex>
+        </v-row>
+        <capacitymap class="px-2 py-4" style="width: 100%" />
+      </v-col>
+    </v-flex>
+    <v-flex md2>
+      <v-col class="pr-2">
+        <miniGraph class="pb-4" value="14.6K" title="Cores online" />
+        <miniGraph class="pb-4" value="14.6K" title="Storage capacity online" />
+        <miniGraph class="pb-4" value="$15.00" title="AVG compute unit price" />
+        <miniGraph class="pb-4" value="$12.00" title="AVG storage unit price" />
+        <miniGraph class="pb-4" value="19.7K" title="Compute capacity grid" />
+        <miniGraph class="pb-4" value="83.1K" title="Storage capacity grid" />
+        <miniGraph class="pb-4" value="$89 915 106" title="5 Years network revenue" />
+        <scrollablecard title="Recent reservations">
+          <div v-for="i in 10" :key="i">
+            <p>hi</p>
+          </div>
+        </scrollablecard>
+      </v-col>
+    </v-flex>
+  </v-row>
 
-      <v-layout row wrap class="fill-height px-4">
-        <v-flex>
-          <capacitymap style="width: 100%"/>
-        </v-flex>
-        <v-flex md2 class="fill-height">
-            <miniGraph class="pb-4 mr-0" value="$15.00" title="AVG compute unit price" />
-            <miniGraph class="pb-4 mr-0" value="$12.00" title="AVG storage unit price" />
-            <miniGraph class="pb-4 mr-0" value="19.7K" title="Compute capacity grid" />
-            <miniGraph class="pb-4 mr-0" value="83.1K" title="Storage capacity grid" />
-            <miniGraph class="pb-4 mr-0" value="$89 915 106" title="5 Years network revenue" />
-            <scrollablecard title="Recent reservations">
-              <div v-for="i in 10" :key="i">
-                <p>hi</p>
-              </div>
-            </scrollablecard>
-        </v-flex>
-      </v-layout>
-    </v-layout>
-  </v-container>
+
 </section>
