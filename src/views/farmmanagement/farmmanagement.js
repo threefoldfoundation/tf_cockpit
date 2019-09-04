@@ -25,6 +25,7 @@ export default {
       showBadge: true,
       itemsPerPage: 4,
       expanded: [],
+      walletAddress: 'eioeZMImsnvqimZMIJDmnv93Dmvciqmoef',
       headers: [
         {
           text: 'Farm name',
