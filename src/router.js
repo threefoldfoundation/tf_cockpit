@@ -40,14 +40,6 @@ export default new Router({
     //     icon: 'fas fa-comment',
     //     position: 'top'
     //   }
-    }, {
-      path: '/farmsettings',
-      name: 'FarmSettings',
-      component: () => import(/* webpackChunkName: "chat-page" */ './views/farmsettings'),
-      meta: {
-        icon: 'fas fa-cog',
-        position: 'bottom'
-      }
     },
     {
       path: '/farmmanagement',
