@@ -19,6 +19,10 @@ export default {
     },
     special: {
       type: Boolean
+    },
+    clickable: {
+      type: Boolean,
+      default: false
     }
   },
   mounted () {

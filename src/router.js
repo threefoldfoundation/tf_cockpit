@@ -19,7 +19,7 @@ export default new Router({
       }
     }, {
       path: '/token',
-      name: 'Token',
+      name: 'token',
       component: () => import(/* webpackChunkName: "token-page" */ './views/token'),
       meta: {
         icon: 'fas fa-coins',

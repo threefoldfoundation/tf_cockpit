@@ -1,34 +1,33 @@
 <section class="home">
-    <v-col class="px-2">
-      <v-flex>
-        <v-row wrap>
-          <v-flex md3 xs6 d-flex class="px-2">
-            <miniGraph v-model="0.1300" title="Average monthly price of 1 TFT" append="USD"/>
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="px-2">
-            <miniGraph />
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="px-2">
-            <miniGraph />
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="px-2">
-            <miniGraph value="Buy TFT"/>
-          </v-flex>
-        </v-row>
-      </v-flex>
-      <v-flex class="pa-2 pt-4">
-        <v-row wrap class="fill-height">
-          <v-flex md8 class="fill-height mr-2">
-            <tokenPriceGraph/>
-          </v-flex>
-          <v-flex d-flex class="ml-2">
-           <lastTrades style="width: 100%;"/>
-          </v-flex>
-        </v-row>
-      </v-flex>
-      <v-flex class="pa-2">
-        <capacityMap />
-      </v-flex>
-    </v-col>
+  <v-col class="px-2">
+    <v-flex>
+      <v-row wrap>
+        <v-flex md3 xs6 d-flex class="px-2">
+          <miniGraph v-model="0.1300" title="Average monthly price of 1 TFT" append="USD" />
+        </v-flex>
+        <v-flex md3 xs6 d-flex class="px-2">
+          <miniGraph value="$ 20" title="Sold last 24 hours" append="M" />
+        </v-flex>
+        <v-flex md3 xs6 d-flex class="px-2">
+          <miniGraph value="12M" title="Number of tokens" append="TFT" />
+        </v-flex>
+        <v-flex md3 xs6 d-flex class="px-2">
+          <miniGraph @click="$router.push({name:'token'})" clickable value="Buy TFT" />
+        </v-flex>
+      </v-row>
+    </v-flex>
+    <v-flex class="pa-2 pt-4">
+      <v-row wrap class="fill-height">
+        <v-flex md8 class="fill-height mr-2">
+          <tokenPriceGraph />
+        </v-flex>
+        <v-flex d-flex class="ml-2">
+          <lastTrades style="width: 100%;" />
+        </v-flex>
+      </v-row>
+    </v-flex>
+    <v-flex class="pa-2">
+      <capacityMap />
+    </v-flex>
+  </v-col>
 </section>
-
