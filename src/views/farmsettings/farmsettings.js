@@ -1,7 +1,6 @@
 export default {
   name: 'farmsettings',
   components: {},
-  selectedItem: {},
   props: [],
   data () {
     return {
@@ -14,6 +13,7 @@ export default {
       hddUnit: '2.6',
       memoryUnit: '3.2',
       search: '',
+      selectedFarm: {},
       ssdUnit: '4.6',
       treebotId: 'LochristiFarm12',
       treebotName: 'Lochristi Farm',
@@ -60,8 +60,7 @@ export default {
   },
   methods: {
     editItem (item) {
-      this.selectedItem = this.farms.indexOf(item)
-      this.editedItem = Object.assign({}, item)
+      this.selectedFarm = this.farms.indexOf(item)
     }
   }
 }

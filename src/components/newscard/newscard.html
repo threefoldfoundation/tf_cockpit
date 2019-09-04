@@ -6,15 +6,11 @@
           <v-avatar color="secondary darken-2">
             <v-img :src="news.image"></v-img>
           </v-avatar>
-          <v-flex class="py-0">
-            <v-col class="py-0">
-              <div>
+          <v-flex xs8 class="ml-2 py-0">
                 <h2>{{news.title}}</h2>
                 <span class="body-2">{{news.author}}</span>
                 <p class="body-1 pb-0 mb-0">{{news.body.replace(/(([^\s]+\s\s*){10})(.*)/,"$1…")}}</p>
                 <v-btn text small style="margin-left: -12px">[Read more]</v-btn>
-              </div>
-            </v-col>
           </v-flex>
         </v-row>
         <v-layout row wrap>

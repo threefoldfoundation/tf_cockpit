@@ -32,14 +32,14 @@ export default new Router({
         icon: 'fas fa-server',
         position: 'top'
       }
-    }, {
-      path: '/chat',
-      name: 'Support',
-      component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
-      meta: {
-        icon: 'fas fa-comment',
-        position: 'top'
-      }
+    // }, {
+    //   path: '/chat',
+    //   name: 'Support',
+    //   component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+    //   meta: {
+    //     icon: 'fas fa-comment',
+    //     position: 'top'
+    //   }
     }, {
       path: '/farmsettings',
       name: 'FarmSettings',
@@ -54,7 +54,7 @@ export default new Router({
       name: 'FarmManagement',
       component: () => import(/* webpackChunkName: "chat-page" */ './views/farmmanagement'),
       meta: {
-        icon: 'fas fa-user-circle',
+        icon: 'fas fa-tractor',
         position: 'bottom'
       }
     }
