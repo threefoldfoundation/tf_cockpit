@@ -26,7 +26,7 @@
               <v-icon>{{ route.meta.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+              <v-list-item-title class="title text-capitalize">{{route.meta.displayName}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
