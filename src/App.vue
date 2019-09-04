@@ -26,7 +26,7 @@
               <v-icon>{{ route.meta.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+              <v-list-item-title class="title text-capitalize">{{route.meta.displayName}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -42,7 +42,7 @@
               <v-icon>{{ route.meta.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title class="title text-capitalize">{{route.name}}</v-list-item-title>
+              <v-list-item-title class="title text-capitalize">{{route.meta.displayName}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -52,10 +52,10 @@
     <v-content class="content">
       <v-col>
         <v-row class="pa-4 mx-1">
-          <h1 class="headline pt-3 text-uppercase">
+          <h1 class="headline pt-0 pb-1 text-uppercase">
             <span>TF</span>
             <span class="font-weight-light">cockpit</span>
-            <span class="title font-weight-light">- {{$route.name}}</span>
+            <span class="title font-weight-light">- {{$route.meta.displayName}}</span>
           </h1>
           <v-spacer />
           <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>

@@ -10,6 +10,7 @@ export default {
       showResult: false,
       itemsPerPage: 4,
       expanded: [],
+      searchNodes: '',
       headers: [
         {
           text: 'Node',

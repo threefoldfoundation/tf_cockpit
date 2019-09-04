@@ -34,11 +34,15 @@
       <v-card style="width: 100%;">
         <v-card-title primary-title class="primary py-3 mb-5 white--text">
           Nodes
+          <v-spacer/>
+          <v-text-field class="pt-0" dark v-model="searchNodes" append-icon="fa-search" label="Search" single-line hide-details>
+          </v-text-field>
+          
         </v-card-title>
         <v-card-text>
           <v-flex class="ml-3">
             <v-layout column justify-space-around>
-              <v-data-table show-expand item-key="name" :headers="headers" :items="items" :items-per-page="10"
+              <v-data-table show-expand item-key="name" :search="searchNodes" :headers="headers" :items="items" :items-per-page="10"
                 single-expand :expanded.sync="expanded">
                 <template v-slot:expanded-item="{ headers }">
                   <td :colspan="headers.length">
