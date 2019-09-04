@@ -42,15 +42,7 @@
                 single-expand :expanded.sync="expanded">
                 <template v-slot:expanded-item="{ headers }">
                   <td :colspan="headers.length">
-                    <v-layout class="py-3" row wrap align-center>
-                      farmer name / link <br>
-                      node specifics <br>
-                      CU pricing <br>
-                      SU procing <br>
-                      Nu pricing <br>
-                      SLA
-
-                    </v-layout>
+                    <nodeinfo/>
                   </td>
                 </template>
               </v-data-table>

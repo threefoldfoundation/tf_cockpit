@@ -6,7 +6,7 @@
           <v-toolbar color="secondary darken-2 " class="py-3">
             <v-badge bottom right overlap color="primary">
               <template v-slot:badge>
-                <v-icon size=12 dark>{{$route.meta.icon}}</v-icon>
+                <v-icon size="12" dark>{{$route.meta.icon}}</v-icon>
               </template>
               <!--slot can be any component-->
               <v-avatar>
@@ -58,6 +58,54 @@
             <span class="title font-weight-light">- {{$route.name}}</span>
           </h1>
           <v-spacer />
+          <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
+            <template v-slot:activator="{ on }">
+              <v-badge overlap left v-model="showBadge" color="secondary">
+                <template v-slot:badge>
+                  <span>1</span>
+                </template>
+                <v-btn text icon v-on="on">
+                  <v-icon>far fa-bell mr-2</v-icon>
+                </v-btn>
+              </v-badge>
+            </template>
+
+            <v-card>
+              <v-list>
+                <v-list-item>
+                  <v-list-item-avatar>
+                    <v-icon>fas fa-plus</v-icon>
+                  </v-list-item-avatar>
+
+                  <v-list-item-content>
+                    <v-list-item-title>A new node wants to join your farm</v-list-item-title>
+                  </v-list-item-content>
+
+                  <v-list-item-action>
+                    <v-btn :class="fav ? 'red--text' : ''" icon @click="fav = !fav"></v-btn>
+                  </v-list-item-action>
+                </v-list-item>
+              </v-list>
+
+              <v-divider></v-divider>
+
+              <v-list>
+                <v-list-item>
+                  <v-list-item-title>Node Id: Lochristi34</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>Node name: Lochristi Node 34</v-list-item-title>
+                </v-list-item>
+              </v-list>
+
+              <v-card-actions>
+                <div class="flex-grow-1"></div>
+
+                <v-btn text @click="menu = false">Deny</v-btn>
+                <v-btn color="primary" text @click="menu = false">Allow</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-menu>
           <v-btn icon>
             <v-icon>fas fa-user-circle</v-icon>
           </v-btn>
@@ -94,10 +142,11 @@ export default {
   background: #fafafa !important;
 }
 .rounded {
-  border-radius: 0 15px 15px 0 !important;
+  border-radius: 0 10px 10px 0 !important;
 }
+.v-menu__content,
 .v-card {
-  border-radius: 15px !important;
+  border-radius: 10px !important;
 }
 .v-card__title {
   font-size: 18px !important;
