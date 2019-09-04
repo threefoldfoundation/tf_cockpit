@@ -15,7 +15,7 @@ export default new Router({
       meta: {
         icon: 'fas fa-home',
         position: 'top',
-        dispalyName: 'Home'
+        displayName: 'Home'
       }
     }, {
       path: '/token',
@@ -24,7 +24,7 @@ export default new Router({
       meta: {
         icon: 'fas fa-coins',
         position: 'top',
-        dispalyName: 'Token'
+        displayName: 'Token'
       }
     }, {
       path: '/capacity',
@@ -33,7 +33,7 @@ export default new Router({
       meta: {
         icon: 'fas fa-server',
         position: 'top',
-        dispalyName: 'Capacity'
+        displayName: 'Capacity'
       }
     // }, {
     //   path: '/chat',
@@ -51,7 +51,7 @@ export default new Router({
       meta: {
         icon: 'fas fa-tractor',
         position: 'bottom',
-        dispalyName: 'Farm management'
+        displayName: 'Farm management'
       }
     }
   ]
