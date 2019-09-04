@@ -4,7 +4,6 @@
       This will be available soon..
     </v-row> -->
   <v-row class="my-3 mx-1">
-
     <v-card style="width: 100%;">
       <v-card-title primary-title class="primary py-3 mb-5 white--text">
         <v-icon color="white" left>fas fa-server</v-icon>
@@ -35,13 +34,22 @@
     </v-card>
     </v-flex>
   </v-row>
-  <v-divider></v-divider>
   <v-row>
     <v-flex d-flex class="mr-2">
-      <v-card style="width: 100%;">
+      <v-card v-if="!selectedFarm.name" style="width: 100%;">
+          <v-card-title primary-title class="primary py-3 mb-5 white--text">
+              <v-icon color="white" left>fas fa-server</v-icon>
+              Farm settings
+              <v-spacer />
+          </v-card-title>
+          <v-card-text>
+              <p class="text-center">please select a farm to edit settings.</p>
+          </v-card-text>
+      </v-card>
+      <v-card v-if="selectedFarm.name" style="width: 100%;">
         <v-card-title primary-title class="primary py-3 mb-5 white--text">
           <v-icon color="white" left>fas fa-server</v-icon>
-          Lochristi farm Settings 5 {{selectedFarm.name}}
+          Farm Settings - {{selectedFarm.name}}
           <v-spacer />
           <v-btn dark text class="mr-3">Cancel</v-btn>
           <v-btn dark text color="secondary" class="mr-3">Save</v-btn>
@@ -64,9 +72,9 @@
             <v-col colls="6">
               <h2>Public information</h2>
               <br>
-              <v-text-field v-model="treebotId" label="3bot ID" disabled></v-text-field>
-              <v-text-field v-model="treebotName" label="Farm name"></v-text-field>
-              <v-textarea counter label="Farm description" :rules="farmDescriptionRules" :value="farmDescription">
+              <v-text-field v-model="selectedFarm.farmId" label="3bot ID" disabled></v-text-field>
+              <v-text-field v-model="selectedFarm.name" label="Farm name"></v-text-field>
+              <v-textarea counter label="Farm description" :rules="farmDescriptionRules" :value="selectedFarm.desc">
               </v-textarea>
 
               <v-text-field v-model="farmLocation" label="Farm location"></v-text-field>

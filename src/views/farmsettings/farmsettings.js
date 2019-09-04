@@ -45,7 +45,7 @@ export default {
           desc: 'Farm is located in Jimber office Bruges'
         },
         {
-          name: 'Farm Lochristi',
+          name: 'Farm Lochristi2',
           farmId: 'LochristiFarm02',
           desc: 'farm is located in 3fold office Lochristi'
         }
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     editItem (item) {
-      this.selectedFarm = this.farms.indexOf(item)
+      this.selectedFarm = item
     }
   }
 }
