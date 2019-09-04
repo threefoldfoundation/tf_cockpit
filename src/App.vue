@@ -4,9 +4,15 @@
       <v-layout column fill-height justify-end>
         <div>
           <v-toolbar color="secondary darken-2 " class="py-3">
-            <v-avatar>
-              <v-img src="./assets/logo.jpg" />
-            </v-avatar>
+            <v-badge bottom right overlap color="primary">
+              <template v-slot:badge>
+                <v-icon size=12 dark>{{$route.meta.icon}}</v-icon>
+              </template>
+              <!--slot can be any component-->
+              <v-avatar>
+                <v-img src="./assets/logo.jpg" />
+              </v-avatar>
+            </v-badge>
           </v-toolbar>
         </div>
         <div>
