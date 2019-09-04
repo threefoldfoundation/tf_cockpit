@@ -7,7 +7,6 @@ export default {
       showResult: false,
       showBadge: true,
       itemsPerPage: 4,
-      expanded: [],
       headers: [
         {
           text: 'Node',

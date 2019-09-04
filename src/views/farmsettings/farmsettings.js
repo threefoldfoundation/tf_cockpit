@@ -1,6 +1,7 @@
 export default {
   name: 'farmsettings',
   components: {},
+  selectedItem: {},
   props: [],
   data () {
     return {
@@ -12,10 +13,43 @@ export default {
       farmEmail: 'lcohristifarm@threefold.com',
       hddUnit: '2.6',
       memoryUnit: '3.2',
+      search: '',
       ssdUnit: '4.6',
       treebotId: 'LochristiFarm12',
       treebotName: 'Lochristi Farm',
-      VAT: 'BE 0684 939 2659'
+      VAT: 'BE 0684 939 2659',
+      showResult: false,
+      showBadge: true,
+      itemsPerPage: 4,
+      expanded: [],
+      headers: [
+        {
+          text: 'Farm name',
+          align: 'left',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'Farm id', value: 'farmId' },
+        { text: 'Farm description', value: 'desc' },
+        { text: 'Actions', value: 'action', sortable: false }
+      ],
+      farms: [
+        {
+          name: 'Farm Lochristi',
+          farmId: 'LochristiFarm01',
+          desc: 'farm is located in 3fold office Lochristi'
+        },
+        {
+          name: 'Farm Bruges',
+          farmId: 'BrugesFarm01',
+          desc: 'Farm is located in Jimber office Bruges'
+        },
+        {
+          name: 'Farm Lochristi',
+          farmId: 'LochristiFarm02',
+          desc: 'farm is located in 3fold office Lochristi'
+        }
+      ]
     }
   },
   computed: {
@@ -25,6 +59,9 @@ export default {
 
   },
   methods: {
-
+    editItem (item) {
+      this.selectedItem = this.farms.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+    }
   }
 }

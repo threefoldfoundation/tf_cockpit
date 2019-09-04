@@ -2,12 +2,55 @@
   <!-- <v-row align="centered" justify="center" class="grey--text lighten-5 pb-5 mb-5">
       This will be available soon..
     </v-row> -->
+    <v-row class="ma-3">
+   
+          <v-card style="width: 100%;">
+            <v-card-title primary-title class="primary py-3 mb-5 white--text">
+              <v-icon color="white" left>fas fa-server</v-icon>
+              My Farms
+              <v-btn text icon dark class="ml-2">
+                  <v-icon>fas fa-plus</v-icon>
+                </v-btn>
+              <v-spacer></v-spacer>
+          
+              <v-col cols="12" sm="3"></v-col>
+              <v-text-field dark
+              
+                v-model="search"
+                append-icon="fa-search"
+                label="Search"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-col>
+            </v-card-title>
+            <v-card-text>
+              <v-row>
+                <v-col>
+                    <v-data-table item-key="name" :search="search" :headers="headers" :items="farms" :items-per-page="10">
+                        <template v-slot:item.action="{ item }">
+                            <v-icon
+                              small
+                              class="mr-2"
+                              @click="editItem(item)"
+                            >
+                              fas   fa-edit
+                            </v-icon>
+                          </template>
+                  </v-data-table>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+    </v-row>
+    <v-divider></v-divider>
   <v-row class="ma-3">
     <v-flex d-flex class="mr-2">
       <v-card style="width: 100%;">
         <v-card-title primary-title class="primary py-3 mb-5 white--text">
           <v-icon color="white" left>fas fa-server</v-icon>
-          My capacity pricing
+          Lochristi farm Settings 5 {{selectedfarm.name}}
           <v-spacer />
           <v-btn dark text class="mr-3">Cancel</v-btn>
           <v-btn dark text color="secondary" class="mr-3">Save</v-btn>
@@ -15,6 +58,8 @@
         <v-card-text>
           <v-row>
             <v-col>
+                <h2>Pricing</h2>
+                <br>
               <v-text-field prefix="$" type="number" step="0.01" min="0" v-model="computeUnit" label="Compute unit">
               </v-text-field>
               <v-text-field prefix="$" type="number" step="0.01" min="0" v-model="memoryUnit" label="Memory unit">
@@ -24,24 +69,7 @@
               <v-text-field prefix="$" type="number" step="0.01" min="0" v-model="hddUnit" label="HDD unit">
               </v-text-field>
             </v-col>
-          </v-row>
-          <v-row align="right">
-
-          </v-row>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-    <v-flex d-flex class="ml-2">
-        <v-card style="width: 100%;">
-          <v-card-title primary-title class="primary py-3 mb-5 white--text">
-            <v-icon color="white" left>fas fa-server</v-icon>
-            My farm settings
-            <v-spacer />
-            <v-btn dark text class="mr-3">Cancel</v-btn>
-            <v-btn dark text color="secondary" class="mr-3">Save</v-btn>
-          </v-card-title>
-          <v-card-text>
-            <v-row>
+ 
               <v-col colls="6">
                 <h2>Public information</h2>
                 <br>
@@ -60,8 +88,8 @@
                 <v-text-field v-model="companyRegistrationNumber" label="Company Registration Number"></v-text-field>
               </v-col>
             </v-row>
-          </v-card-text>
-        </v-card>
-      </v-flex>
+        </v-card-text>
+      </v-card>
+    </v-flex>
   </v-row>
 </section>
