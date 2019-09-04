@@ -4,6 +4,7 @@ export default {
   props: [],
   data () {
     return {
+      addFarmDialog: false,
       companyRegistrationNumber: 'BE 0684 939 2659',
       computeUnit: '5.66',
       settingsDialog: false,
