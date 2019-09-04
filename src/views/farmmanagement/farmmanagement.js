@@ -64,8 +64,8 @@ export default {
         { text: 'Uptime', value: 'calories' },
         { text: 'Version', value: 'fat' },
         { text: 'ID', value: 'carbs' },
-        { text: 'Farmer', value: 'protein' },
-        { text: 'Status', value: 'status' }
+        { text: 'Farmer', value: 'farmer' },
+        { text: 'Status', value: 'status', align: 'center' }
       ],
       nodeItems: [
         {
@@ -73,7 +73,7 @@ export default {
           calories: 159,
           fat: 6.0,
           carbs: 24,
-          protein: 4.0,
+          farmer: 'kdespiegeleer',
           sodium: 87,
           calcium: '14%',
           status: 'Active'
@@ -83,7 +83,7 @@ export default {
           calories: 237,
           fat: 9.0,
           carbs: 37,
-          protein: 4.3,
+          farmer: 'kdespiegeleer',
           sodium: 129,
           calcium: '8%',
           status: 'Active'
@@ -93,10 +93,10 @@ export default {
           calories: 262,
           fat: 16.0,
           carbs: 23,
-          protein: 6.0,
+          farmer: 'medeweerdt',
           sodium: 337,
           calcium: '6%',
-          status: 'Active'
+          status: 'Not active'
         }
       ]
     }
@@ -114,6 +114,10 @@ export default {
     viewSettings (item) {
       this.farmToEdit = item
       this.settingsDialog = true
+    },
+    getColor (status) {
+      if (status === 'Active') return 'green'
+      else return 'red'
     }
   }
 }
