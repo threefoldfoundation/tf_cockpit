@@ -1,27 +1,28 @@
 <section class="capacity">
-  <v-row class="px-2">
+  <v-row class="pa-2">
     <v-flex md10>
-      <v-col>
+      <v-col class="pb-0">
         <v-row>
-          <v-flex md3 d-flex class="px-2">
+          <v-flex md3 xs6 d-flex class="pa-2">
             <miniGraph value="900" title="Registered 3Nodes" />
           </v-flex>
-          <v-flex md3 d-flex class="px-2">
+          <v-flex md3 xs6 d-flex class="pa-2">
             <miniGraph value="526" title="3Nodes online" />
           </v-flex>
-          <v-flex md3 d-flex class="px-2">
+          <v-flex md3 xs6 d-flex class="pa-2">
             <miniGraph value="21" title="Countries" />
           </v-flex>
-          <v-flex md3 d-flex class="px-2">
+          <v-flex md3 xs6 d-flex class="pa-2">
             <miniGraph value="64" title="Farms" />
           </v-flex>
-          <v-flex md3 d-flex class="px-2">
-          </v-flex>
         </v-row>
-        <capacitymap class="px-2 py-4" style="width: 100%" />
+        <v-row>
+          <v-flex class="ma-2" d-flex md4><capacityMap style="width: 100%;"/></v-flex>
+          <v-flex class="ma-2" d-flex><nodesTable style="height: 100%; width:100%;"/></v-flex>
+        </v-row>
       </v-col>
     </v-flex>
-    <v-flex md2>
+    <v-flex md2 class="red">
       <v-col class="pr-2">
         <miniGraph class="pb-4" value="14.6K" title="Cores online" />
         <miniGraph class="pb-4" value="14.6K" title="Storage capacity online" />

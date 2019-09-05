@@ -1,9 +1,10 @@
 import miniGraph from '../../components/minigraph'
-import capacitymap from '../../components/capacitymap'
+import capacityMap from '../../components/capacitymap'
+import nodesTable from '../../components/nodestable'
 import scrollablecard from '../../components/scrollablecard'
 export default {
   name: 'capacity',
-  components: { miniGraph, capacitymap, scrollablecard },
+  components: { miniGraph, capacityMap, scrollablecard, nodesTable },
   props: [],
   data () {
     return {

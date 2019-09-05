@@ -10,7 +10,7 @@ export default {
         CUPricing: '$ 0.01',
         SUPricing: '$ 0.01',
         NUPricing: '$ 0.01',
-        SLA: 'en tomaat'
+        SLA: '99.9999%'
       }
     }
   },

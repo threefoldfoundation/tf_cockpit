@@ -23,7 +23,6 @@ export default {
       treebotName: 'Lochristi Farm',
       VAT: 'BE 0684 939 2659',
       showResult: false,
-      showBadge: true,
       itemsPerPage: 4,
       expanded: [],
       walletAddress: 'eioeZMImsnvqimZMIJDmnv93Dmvciqmoef',

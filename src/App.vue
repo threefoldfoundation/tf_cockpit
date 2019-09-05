@@ -82,7 +82,7 @@
                   </v-list-item-content>
 
                   <v-list-item-action>
-                    <v-btn :class="fav ? 'red--text' : ''" icon @click="fav = !fav"></v-btn>
+                    <v-btn icon></v-btn>
                   </v-list-item-action>
                 </v-list-item>
               </v-list>
@@ -113,6 +113,12 @@
         <router-view></router-view>
       </v-col>
     </v-content>
+    <v-bottom-navigation v-if="$vuetify.breakpoint.mdAndDown" grow dark class="primary topround" app fixed shift :value="$route.name">
+      <v-btn :value="route.name" icon v-for="(route, i) in routes" :key="i" @click="$router.push(route)">
+        <span>{{route.meta.displayName}}</span>
+        <v-icon>{{route.meta.icon}}</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -126,7 +132,9 @@ export default {
     dialogBody: "",
     dialogActions: [],
     dialogImage: null,
-    block: null
+    block: null,
+    showBadge: true,
+    menu: false
   }),
   computed: {
     routes() {
@@ -140,6 +148,9 @@ export default {
 <style lang="scss">
 .content {
   background: #fafafa !important;
+}
+.topround {
+  border-radius: 10px 10px 0 0 !important;
 }
 .rounded {
   border-radius: 0 10px 10px 0 !important;
