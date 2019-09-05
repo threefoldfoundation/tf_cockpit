@@ -1,6 +1,7 @@
+import nodeInfo from '../nodeinfo'
 export default {
   name: 'nodestable',
-  components: {},
+  components: { nodeInfo },
   props: [],
   data () {
     return {
