@@ -35,14 +35,23 @@ export default new Router({
         position: 'top',
         displayName: 'Capacity'
       }
-    // }, {
-    //   path: '/chat',
-    //   name: 'Support',
-    //   component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
-    //   meta: {
-    //     icon: 'fas fa-comment',
-    //     position: 'top'
-    //   }
+    }, {
+      path: '/appstore',
+      name: 'dapps',
+      component: () => import(/* webpackChunkName: "capacity-page" */ './views/appstore'),
+      meta: {
+        icon: 'fas fa-th',
+        position: 'top',
+        displayName: 'ADApps'
+      }
+      // }, {
+      //   path: '/chat',
+      //   name: 'Support',
+      //   component: () => import(/* webpackChunkName: "chat-page" */ './views/chat'),
+      //   meta: {
+      //     icon: 'fas fa-comment',
+      //     position: 'top'
+      //   }
     },
     {
       path: '/farmmanagement',
