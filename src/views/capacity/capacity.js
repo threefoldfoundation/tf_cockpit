@@ -2,6 +2,7 @@ import miniGraph from '../../components/minigraph'
 import capacityMap from '../../components/capacitymap'
 import nodesTable from '../../components/nodestable'
 import scrollablecard from '../../components/scrollablecard'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'capacity',
   components: { miniGraph, capacityMap, scrollablecard, nodesTable },
@@ -12,12 +13,16 @@ export default {
     }
   },
   computed: {
-
+    ...mapGetters([
+      'registerd3bots'
+    ])
   },
   mounted () {
-
+    this.getRestered3Bots()
   },
   methods: {
-
+    ...mapActions([
+      'getRestered3Bots'
+    ])
   }
 }

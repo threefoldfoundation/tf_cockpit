@@ -2,20 +2,21 @@ import tfService from '../services/tfService'
 
 export default({
   state: {
-    trades: []
+    registerd3bots: null
   },
   actions: {
-    getTrades (context) {
-      tfService.getLastTrades().then(trades => {
-        console.log(`trades`)
-        context.commit('setTrades', trades)
+    getRestered3Bots (context) {
+      tfService.registerd3bots().then(response => {
+        context.commit('setRegitered3Bots', response.data())
       })
     }
   },
   mutations: {
-    setTrades: (state, trades) => { state.trades = trades }
+    setRegitered3Bots (state, value) {
+      state.registerd3bots = value
+    }
   },
   getters: {
-    trades: (state) => state.trades
+    registerd3bots: (state) => state.registerd3bots
   }
 })
