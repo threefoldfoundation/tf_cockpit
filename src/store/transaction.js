@@ -5,14 +5,15 @@ export default({
     registerd3bots: null
   },
   actions: {
-    getRestered3Bots (context) {
-      tfService.registerd3bots().then(response => {
-        context.commit('setRegitered3Bots', response.data())
+    getRegistered3Bots (context) {
+      tfService.registered3bots().then(response => {
+        console.log(response.data);
+        context.commit('setRegistered3Bots', response.data.nodes.length)
       })
     }
   },
   mutations: {
-    setRegitered3Bots (state, value) {
+    setRegistered3Bots (state, value) {
       state.registerd3bots = value
     }
   },

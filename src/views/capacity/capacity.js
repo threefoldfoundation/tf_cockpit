@@ -18,11 +18,11 @@ export default {
     ])
   },
   mounted () {
-    this.getRestered3Bots()
+    this.getRegistered3Bots()
   },
   methods: {
     ...mapActions([
-      'getRestered3Bots'
+      'getRegistered3Bots'
     ])
   }
 }
