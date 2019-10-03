@@ -1,23 +1,34 @@
 import tfService from '../services/tfService'
 
-export default({
+export default ({
   state: {
-    registerd3bots: null
+    registered3bots: null,
+    registeredFarms: null
   },
   actions: {
     getRegistered3Bots (context) {
       tfService.registered3bots().then(response => {
-        console.log(response.data);
+        console.log("nodes", response.data)
         context.commit('setRegistered3Bots', response.data.nodes.length)
+      })
+    },
+    getRegisteredFarms (context) {
+      tfService.registeredfarms().then(response => {
+        console.log("farms", response.data)
+        context.commit('setRegisteredFarms', response.data.farms.length)
       })
     }
   },
   mutations: {
     setRegistered3Bots (state, value) {
-      state.registerd3bots = value
+      state.registered3bots = value
+    },
+    setRegisteredFarms (state, value) {
+      state.registeredFarms = value
     }
   },
   getters: {
-    registerd3bots: (state) => state.registerd3bots
+    registered3bots: (state) => state.registered3bots,
+    registeredfarms: (state) => state.registeredFarms
   }
 })
