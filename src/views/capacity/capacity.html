@@ -4,16 +4,16 @@
       <v-col class="pt-0">
         <v-row>
           <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="registerd3bots" title="Registered 3Nodes" />
+            <miniGraph :value="registered3bots" title="Registered 3Nodes" />
           </v-flex>
           <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph value="526" title="3Nodes online" />
+              <miniGraph :value="onlinenodes" title="3Nodes online" />
           </v-flex>
           <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph value="21" title="Countries" />
+            <miniGraph :value="countries" title="Countries" />
           </v-flex>
           <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="registerdfarms" title="Farms" />
+            <miniGraph :value="registeredfarms" title="Farms" />
           </v-flex>
         </v-row>
         <v-row>
@@ -24,7 +24,7 @@
     </v-flex>
     <v-flex md2>
       <v-col class="pa-2">
-        <miniGraph class="pb-4" value="14.6K" title="Cores online" />
+        <miniGraph class="pb-4" :value="cores" title="Cores online" />
         <miniGraph class="pb-4" value="14.6K" title="Storage capacity online" />
         <miniGraph class="pb-4" value="$15.00" title="AVG compute unit price" />
         <miniGraph class="pb-4" value="$12.00" title="AVG storage unit price" />

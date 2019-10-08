@@ -9,17 +9,16 @@ export default {
   props: [],
   data () {
     return {
-
     }
   },
   computed: {
-    registerdfarms() { return this.$store.getters.registerdfarms },
-    registerd3bots() { console.log(this.$store); return this.$store.getters.registerd3bots },
-      /*
     ...mapGetters([
-      'registerd3bots',
-      'registerdfarms'
-    ])*/
+      'registered3bots',
+      'registeredfarms',
+      'cores',
+      'countries',
+      'onlinenodes'
+    ])
   },
   mounted () {
     this.getRegistered3Bots()
