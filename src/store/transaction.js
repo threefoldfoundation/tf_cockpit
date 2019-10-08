@@ -7,6 +7,7 @@ export default ({
     registeredFarms: 0,
     farmsList: [],
     nodesList: [],
+    originalNodesList: [],
     countries: 0,
     cores: 0
   },
@@ -16,6 +17,7 @@ export default ({
         console.log('nodes', response.data)
         context.commit('setRegistered3Bots', response.data.nodes.length)
         context.commit('setNodesList', response.data.nodes)
+        context.commit('setOriginalNodesList', response.data.nodes)
         context.commit('setCountriesFromNodes', response.data.nodes)
         context.commit('setCoresFromNodes', response.data.nodes)
         context.commit('setNodesOnline', response.data.nodes)
@@ -37,23 +39,18 @@ export default ({
       state.registeredFarms = value
     },
     setFarmsList (state, value) {
-      state.farmsList = []
-      for (var i in value) {
-        state.farmsList.push(value[i]['name'])
-      }
+      state.farmsList = value.map(f => {
+        return {
+          value: f,
+          text: f.name
+        }
+      })
     },
     setNodesList (state, value) {
-      state.nodesList = []
-      for (var i in value) {
-        state.nodesList.push({
-          'name': 'Node ' + i,
-          'uptime': value[i]['uptime'],
-          'version': value[i]['os_version'].substr(0, 8) + '...',
-          'id': value[i]['node_id'].substr(0, 8) + '...',
-          'farmer': value[i]['farm_id'].substr(0, 8) + '...',
-          'status': 'Active'
-        })
-      }
+      state.nodesList = value
+    },
+    setOriginalNodesList (state, value) {
+      state.originalNodesList = value
     },
     setCountriesFromNodes (state, value) {
       var temp = {}
@@ -79,6 +76,7 @@ export default ({
     registeredfarms: (state) => state.registeredFarms,
     farmslist: (state) => state.farmsList,
     nodeslist: (state) => state.nodesList,
+    originalNodesList: (state) => state.originalNodesList,
     cores: (state) => state.cores,
     countries: (state) => state.countries,
     onlinenodes: (state) => state.onlinenodes
