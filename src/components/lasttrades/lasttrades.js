@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 import blockInfo from '../blockinfo'
 import scrollablecard from '../scrollablecard'
 export default {
@@ -21,7 +21,6 @@ export default {
   computed: {
   },
   mounted () {
-    // this.getTrades()
   },
   methods: {
 
