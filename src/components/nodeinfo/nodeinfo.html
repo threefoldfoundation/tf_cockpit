@@ -2,39 +2,57 @@
   <v-row class="px-4">
     <v-col>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">Farmer name / link </v-flex>
+        <v-flex xs3 class="text-left pr-2">Node ID </v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.name}}</span>
+          <span>{{value.id}}</span>
         </v-flex>
       </v-row>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">Node specifics</v-flex>
+        <v-flex xs3 class="text-left pr-2">Node version</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.specifics}}</span>
+          <span>{{value.version}}</span>
         </v-flex>
       </v-row>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">CU pricing</v-flex>
+        <v-flex xs3 class="text-left pr-2">Uptime</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.CUPricing}}</span>
+          <span>{{value.uptime}}</span>
         </v-flex>
       </v-row>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">SU pricing</v-flex>
+        <v-flex xs3 class="text-left pr-2">Status</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.SUPricing}}</span>
+          <span>{{value.status}}</span>
         </v-flex>
       </v-row>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">NU pricing</v-flex>
+        <v-flex xs3 class="text-left pr-2">Updated</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.NUPricing}}</span>
+          <span>{{value.updated}}</span>
         </v-flex>
       </v-row>
       <v-row>
-        <v-flex xs3 class="text-left pr-2">SLA</v-flex>
+        <v-flex xs3 class="text-left pr-2">Total CRU</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.SLA}}</span>
+          <span>{{value.cru}}</span>
+        </v-flex>
+      </v-row>
+      <v-row>
+        <v-flex xs3 class="text-left pr-2">Total MRU</v-flex>
+        <v-flex class="text-truncate font-weight-bold">
+          <span>{{value.mru}}</span>
+        </v-flex>
+      </v-row>
+      <v-row>
+        <v-flex xs3 class="text-left pr-2">Total HRU</v-flex>
+        <v-flex class="text-truncate font-weight-bold">
+          <span>{{value.hru}}</span>
+        </v-flex>
+      </v-row>
+      <v-row>
+        <v-flex xs3 class="text-left pr-2">Total SRU</v-flex>
+        <v-flex class="text-truncate font-weight-bold">
+          <span>{{value.sru}}</span>
         </v-flex>
       </v-row>
     </v-col>

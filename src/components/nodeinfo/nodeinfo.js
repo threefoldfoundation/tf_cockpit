@@ -1,26 +1,21 @@
 export default {
   name: 'nodeinfo',
-  components: {},
-  props: [],
+  props: ['node'],
   data () {
+    const { id, uptime, version, totalResources, status: nodeStatus, updated } = this.node
+    const { cru, mru, sru, hru } = totalResources
     return {
       value: {
-        name: 'Node name',
-        specifics: 'Node specifications',
-        CUPricing: '$ 0.01',
-        SUPricing: '$ 0.01',
-        NUPricing: '$ 0.01',
-        SLA: '99.9999%'
+        id,
+        uptime,
+        version,
+        cru,
+        mru,
+        sru,
+        hru,
+        status: nodeStatus.status,
+        updated
       }
     }
-  },
-  computed: {
-
-  },
-  mounted () {
-
-  },
-  methods: {
-
   }
 }
