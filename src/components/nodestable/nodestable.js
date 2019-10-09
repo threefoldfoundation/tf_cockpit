@@ -41,7 +41,8 @@ export default {
           name: 'node ' + node.node_id,
           totalResources: node.total_resources,
           updated: new Date(node.updated * 1000),
-          status: this.getStatus(node)
+          status: this.getStatus(node),
+          location: node.location
         }
       })
       return parsedNodes
