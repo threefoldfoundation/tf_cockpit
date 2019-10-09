@@ -3,13 +3,16 @@
     <v-flex>
       <v-row wrap>
         <v-flex md3 xs6 d-flex class="pa-2">
-          <miniGraph v-model="0.1300" title="Average monthly price of 1 TFT" append="USD" />
+          <miniGraph value="$ 59,698,530" title="Market cap"/>
         </v-flex>
         <!-- <v-flex md3 xs6 d-flex class="pa-2">
           <miniGraph value="$ 20" title="Sold last 24 hours" append="M" />
         </v-flex> -->
         <v-flex md3 xs6 d-flex class="pa-2">
-          <miniGraph value="12M" title="Number of tokens" append="TFT" />
+          <miniGraph value="397,990,202" title="Number of tokens" append="TFT" />
+        </v-flex>
+        <v-flex md3 xs6 d-flex class="pa-2">
+          <miniGraph value="$ 0,15" title="Token Price" />
         </v-flex>
         <v-flex md3 xs6 d-flex class="pa-2">
           <miniGraph @click="$router.push({name:'token'})" clickable value="Buy TFT" />
