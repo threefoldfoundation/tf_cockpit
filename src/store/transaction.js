@@ -39,12 +39,7 @@ export default ({
       state.registeredFarms = value
     },
     setFarmsList (state, value) {
-      state.farmsList = value.map(f => {
-        return {
-          value: f,
-          text: f.name
-        }
-      })
+      state.farmsList = value
     },
     setNodesList (state, value) {
       state.nodesList = value

@@ -2,6 +2,7 @@ import nodeInfo from '../nodeinfo'
 import { mapGetters } from 'vuex'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
+import { find } from 'lodash'
 
 momentDurationFormatSetup(moment)
 
@@ -25,19 +26,29 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'nodeslist'
+      'nodeslist',
+      'farmslist'
     ]),
     // Parse nodelist to table format here
     parsedNodesList: function () {
       const parsedNodes = this.nodeslist.map((node) => {
         const uptime = moment.duration(node.uptime, 'seconds').format()
 
+        const farmer = find(this.farmslist, farmer => {
+          return farmer.id.toString() === node.farm_id
+        })
+
+        // initialize farmer name with farmer_id from node incase farmer is not found
+        let farmerName = node.farm_id
+        if (farmer) {
+          farmerName = farmer.name
+        }
+
         return {
           uptime,
           version: node.os_version,
           id: node.node_id,
-          farmer: node.farm_id,
-          farmerId: node.farm_id,
+          farmer: farmerName,
           name: 'node ' + node.node_id,
           totalResources: node.total_resources,
           updated: new Date(node.updated * 1000),

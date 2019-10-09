@@ -14,9 +14,15 @@
         </v-flex>
       </v-row>
       <v-row>
+        <v-flex xs3 class="text-left pr-2">Farmer</v-flex>
+        <v-flex class="text-truncate font-weight-bold">
+          <span>{{value.farmer}}</span>
+        </v-flex>
+      </v-row>
+      <v-row>
         <v-flex xs3 class="text-left pr-2">Location</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.country}}, {{value.city}}</span>
+          <span>{{value.location.country}}, {{value.location.city}}</span>
         </v-flex>
       </v-row>
       <v-row>
@@ -28,7 +34,7 @@
       <v-row>
         <v-flex xs3 class="text-left pr-2">Status</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.status}}</span>
+          <span>{{value.status.status}}</span>
         </v-flex>
       </v-row>
       <v-row>
@@ -40,25 +46,25 @@
       <v-row>
         <v-flex xs3 class="text-left pr-2">Total CRU</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.cru}}</span>
+          <span>{{value.totalResources.cru}}</span>
         </v-flex>
       </v-row>
       <v-row>
         <v-flex xs3 class="text-left pr-2">Total MRU</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.mru}}</span>
+          <span>{{value.totalResources.mru}}</span>
         </v-flex>
       </v-row>
       <v-row>
         <v-flex xs3 class="text-left pr-2">Total HRU</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.hru}}</span>
+          <span>{{value.totalResources.hru}}</span>
         </v-flex>
       </v-row>
       <v-row>
         <v-flex xs3 class="text-left pr-2">Total SRU</v-flex>
         <v-flex class="text-truncate font-weight-bold">
-          <span>{{value.sru}}</span>
+          <span>{{value.totalResources.sru}}</span>
         </v-flex>
       </v-row>
     </v-col>

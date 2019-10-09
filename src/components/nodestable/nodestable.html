@@ -13,12 +13,12 @@
             <v-layout column justify-space-around>
               <v-data-table show-expand item-key="name" :search="searchNodes" :headers="headers" :items="parsedNodesList" :items-per-page="10"
                 single-expand :expanded.sync="expanded">
-                <template v-slot:item.id="{ item }">
+                <template v-slot:item.farmer="{ item }">
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
-                      <span v-on="on">{{ truncateString(item.id) }}</span>
+                      <span v-on="on">{{ truncateString(item.farmer) }}</span>
                     </template>
-                    <span>{{ item.id }}</span>
+                    <span>{{ item.farmer }}</span>
                   </v-tooltip>
                 </template>
 

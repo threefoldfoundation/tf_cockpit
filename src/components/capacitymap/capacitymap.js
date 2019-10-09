@@ -19,7 +19,12 @@ export default {
       'originalNodesList'
     ]),
     allFarmsList: function () {
-      const allFarmers = this.farmslist
+      const allFarmers = this.farmslist.map(f => {
+        return {
+          value: f,
+          text: f.name
+        }
+      })
       allFarmers.push({ text: 'All', value: 'All' })
       return allFarmers
     },
