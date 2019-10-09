@@ -6,5 +6,11 @@ export default ({
   },
   registeredfarms () {
     return axios.post(`${config.tfApiUrl}farms/list`)
+  },
+  getExplorerConstants () {
+    return axios.get(`${config.tfExplorerUrl}`)
+  },
+  getExplorerBlockByHeight (height) {
+    return axios.get(`${config.tfExplorerUrl}/blocks/${height}`)
   }
 })

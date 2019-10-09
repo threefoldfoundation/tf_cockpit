@@ -2,20 +2,13 @@ export default {
   name: 'blockinfo',
   components: {},
   props: [
-    'value'
+    'block',
+    'height'
   ],
-  data () {
-    return {
-
-    }
-  },
   computed: {
-
-  },
-  mounted () {
-
-  },
-  methods: {
-
+    // Parse nodelist to table format here
+    timestamp: function () {
+      return new Date(this.block.rawblock.timestamp * 1000)
+    }
   }
 }
