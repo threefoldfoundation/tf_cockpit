@@ -1,6 +1,8 @@
 import capacityselector from '../capacityselector'
 import nodeinfo from '../nodeinfo'
 import { mapGetters, mapMutations } from 'vuex'
+import { groupBy, map } from 'lodash'
+
 export default {
   name: 'capacitymap',
   components: { capacityselector, nodeinfo },
@@ -20,6 +22,21 @@ export default {
       const allFarmers = this.farmslist
       allFarmers.push({ text: 'All', value: 'All' })
       return allFarmers
+    },
+    nodeLocation: function () {
+      // Group nodes by country
+      const groupedNodeLocations = groupBy(this.nodeslist, node => node.location.country)
+
+      const nodeLocations = []
+      // Map expect type [[country, count], ...]
+      map(groupedNodeLocations, (groupedLocation, key) => {
+        const numberOfNodesInLocation = []
+        const count = groupedLocation.length
+        numberOfNodesInLocation.push(key, count)
+        nodeLocations.push(numberOfNodesInLocation)
+      })
+
+      return nodeLocations
     }
   },
   mounted () {

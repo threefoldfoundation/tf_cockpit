@@ -7,7 +7,7 @@
     <v-card-text>
       <v-layout column align-content-space-between>
         <geo-chart :colors="[$vuetify.theme.currentTheme.secondary]"
-          :data="[['United States', 44], ['Germany', 23], ['Brazil', 22]]">
+          :data="nodeLocation">
         </geo-chart>
         <v-flex>
           <v-select
