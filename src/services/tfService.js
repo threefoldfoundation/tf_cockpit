@@ -7,6 +7,9 @@ export default ({
   registeredfarms () {
     return axios.post(`${config.tfApiUrl}farms/list`)
   },
+  news () {
+    return axios.post(`${config.tfApiUrl}news/list`)
+  },
   getExplorerConstants () {
     return axios.get(`${config.tfExplorerUrl}`)
   },
