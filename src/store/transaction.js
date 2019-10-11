@@ -1,4 +1,5 @@
 import tfService from '../services/tfService'
+import { uniqBy, sumBy } from 'lodash'
 
 export default ({
   state: {
@@ -48,19 +49,10 @@ export default ({
       state.originalNodesList = value
     },
     setCountriesFromNodes (state, value) {
-      var temp = {}
-      for (var i in value) {
-        temp[value[i]['location']['country']] = 1
-      }
-
-      state.countries = Object.keys(temp).length
+      state.countries = uniqBy(value, node => node.location.country).length
     },
     setCoresFromNodes (state, value) {
-      state.cores = 0
-
-      for (var i in value) {
-        state.cores += value[i]['total_resources']['cru']
-      }
+      state.cores = sumBy(value, node => node.total_resources.cru)
     },
     setNodesOnline (state, value) {
       state.onlinenodes = value.length
