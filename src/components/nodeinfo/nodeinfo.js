@@ -3,7 +3,6 @@ export default {
   props: ['node'],
   data () {
     return {
-      value: this.node
     }
   }
 }
