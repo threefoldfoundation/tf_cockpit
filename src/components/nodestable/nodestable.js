@@ -60,20 +60,18 @@ export default {
     }
   },
   methods: {
-    getStatus (node) {
+    getStatus(node) {
       const { updated } = node
-      // if updated in 0 means node is down
-      if (updated === 0) return { color: 'red', status: 'down' }
-
       const startTime = moment()
-      const end = moment(updated)
+      const end = moment.unix(updated)
       const minutes = startTime.diff(end, 'minutes')
 
       // if updated difference in minutes with now is less then 10 minutes, node is up
-      if (minutes <= 10) return { color: 'green', status: 'up' }
-      else return { color: 'orange', status: 'likely down' }
+      if (minutes < 15) return { color: 'green', status: 'up' }
+      else if (16 < minutes && minutes < 20) return { color: 'orange', status: 'likely down' }
+      else return { color: 'red', status: 'down' }
     },
-    truncateString (str) {
+    truncateString(str) {
       if (str.length < 10) return str
       return str.substr(0, 10) + '...'
     }
