@@ -10,11 +10,8 @@ export default {
       addFarmDialog: false,
       settingsDialog: false,
       companyRegistrationNumber: 'BE 0684 939 2659',
-
       farmDescription: 'This farm is located in the 3fold office in Lochristi',
       farmDescriptionRules: [v => v.length <= 250 || 'Max 250 characters'],
-
-      
       searchFarms: '',
       searchNodes: '',
       farmSelected: {},
@@ -85,7 +82,6 @@ export default {
       newFarm: {
         // TODO  make this dynamic
         threebot_id: 'hello',
-        email: 'emial@test.be',
         location: {
           // city: 'Brugge',
           // country: 'Belgium',
