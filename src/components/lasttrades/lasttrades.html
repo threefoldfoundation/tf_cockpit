@@ -1,6 +1,6 @@
 <section class="lasttrades">
-  <scrollablecard style="height: 100%" title="Last trades" icon="fas fa-exchange-alt">
-    <v-card class="my-2 grey lighten-5" v-for="i in 50" :key="i" @click="showDialog = true">
+  <scrollablecard :disableSearch="true" style="height: 100%" title="Last Blocks" icon="fas fa-exchange-alt" v-if="blocks">
+    <v-card class="my-2 grey lighten-5" v-for="block in blocks" :key="block.blockid" @click="showBlockDialog(block, true)">
       <v-card-text>
         <v-row class="px-2">
           <v-avatar color="secondary darken-2 ">
@@ -8,29 +8,27 @@
           </v-avatar>
           <v-col class="py-0 text-truncate  d-inline-block">
             <div>Block #{{block.height}}</div>
-            <div class="">ID: {{block.id}}</div>
+            <div class="">ID: {{block.blockid}}</div>
           </v-col>
         </v-row>
       </v-card-text>
     </v-card>
   </scrollablecard>
-
   <v-dialog v-model="showDialog" max-width="600px" scrollable>
     <v-card>
       <v-toolbar color="secondary darken-2" class="mb-3 text-uppercase" dark>
         <v-card-title>Block #{{block.height}}</v-card-title>
         <v-spacer />
-        <v-btn icon class="mr-0" @click="showDialog = false">
+        <v-btn icon class="mr-0" @click="showBlockDialog(block, false)">
           <v-icon>fas fa-times</v-icon>
         </v-btn>
       </v-toolbar>
       <v-card-text>
-        <blockInfo :value="block" />
+        <blockInfo :block="block" :height="height" />
       </v-card-text>
-
       <v-card-actions>
         <div class="flex-grow-1"></div>
-        <v-btn text @click="showDialog=false">Ok</v-btn>
+        <v-btn text @click="showBlockDialog(block, false)">Ok</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

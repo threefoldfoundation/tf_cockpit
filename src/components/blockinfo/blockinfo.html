@@ -3,7 +3,7 @@
     <v-row>
       <v-flex xs3 class="text-right pr-2">Height</v-flex>
       <v-flex xs9 class="text-truncate font-weight-bold">
-        <span>{{value.height}}</span>
+        <span>{{block.height}}</span>
       </v-flex>
     </v-row>
     <v-row>
@@ -11,9 +11,9 @@
       <v-flex xs9 class="text-truncate font-weight-bold">
         <v-tooltip bottom>
           <template v-slot:activator="{on}">
-            <span v-on='on'>{{value.id}}</span>
+            <span v-on='on'>{{block.blockid}}</span>
           </template>
-          <span>{{value.id}}</span>
+          <span>{{block.blockid}}</span>
         </v-tooltip>
       </v-flex>
     </v-row>
@@ -22,28 +22,28 @@
       <v-flex xs9 class="text-truncate font-weight-bold">
         <v-tooltip bottom>
           <template v-slot:activator="{on}">
-            <span v-on='on'>{{value.parentBlockId}}</span>
+            <span v-on='on'>{{block.rawblock.parentid}}</span>
           </template>
-          <span>{{value.parentBlockId}}</span>
+          <span>{{block.rawblock.parentid}}</span>
         </v-tooltip>
       </v-flex>
     </v-row>
     <v-row>
       <v-flex xs3 class="text-right pr-2">Time</v-flex>
       <v-flex xs9 class="text-truncate font-weight-bold">
-        <span>{{value.time}}</span>
+        <span>{{timestamp}}</span>
       </v-flex>
     </v-row>
     <v-row>
       <v-flex xs3 class="text-right pr-2">Block Confirmations</v-flex>
       <v-flex xs9 class="text-truncate font-weight-bold">
-        <span>{{value.blockConfirmations}}</span>
+        <span>{{height - block.height}}</span>
       </v-flex>
     </v-row>
     <v-row>
       <v-flex xs3 class="text-right pr-2">Active BlockStake</v-flex>
       <v-flex xs9 class="text-truncate font-weight-bold">
-        <span>{{value.blockStake}}</span>
+        <span>{{block.estimatedactivebs}}</span>
       </v-flex>
     </v-row>
   </v-col>

@@ -3,7 +3,8 @@ export default {
   components: {},
   props: [
     'title',
-    'icon'
+    'icon',
+    'disableSearch'
   ],
   data () {
     return {

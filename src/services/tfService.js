@@ -1,16 +1,19 @@
 import axios from 'axios'
 import config from '../../public/config'
 export default ({
-  getPeersStat () {
-    return axios.get(`${config.tfApiUrl}v1/peers/stat`)
+  registered3bots () {
+    return axios.post(`${config.tfApiUrl}nodes/list`)
   },
-  getPeers () {
-    return axios.get(`${config.tfApiUrl}v1/peers`)
+  registeredfarms () {
+    return axios.post(`${config.tfApiUrl}farms/list`)
   },
-  getChartRate () {
-    return axios.get(`${config.tfApiUrl}v1/chart/rates`)
+  news () {
+    return axios.post(`${config.tfApiUrl}news/list`)
   },
-  getLastTrades () {
-    return axios.get(`${config.tfApiUrl}v1`)
+  getExplorerConstants () {
+    return axios.get(`${config.tfExplorerUrl}`)
+  },
+  getExplorerBlockByHeight (height) {
+    return axios.get(`${config.tfExplorerUrl}/blocks/${height}`)
   }
 })

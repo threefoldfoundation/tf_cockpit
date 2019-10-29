@@ -2,20 +2,12 @@ export default {
   name: 'blockinfo',
   components: {},
   props: [
-    'value'
+    'block',
+    'height'
   ],
-  data () {
-    return {
-
-    }
-  },
   computed: {
-
-  },
-  mounted () {
-
-  },
-  methods: {
-
+    timestamp: function () {
+      return new Date(this.block.rawblock.timestamp * 1000)
+    }
   }
 }

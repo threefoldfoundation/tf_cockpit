@@ -1,8 +1,14 @@
 import nodeInfo from '../nodeinfo'
+import { mapGetters } from 'vuex'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+import { find } from 'lodash'
+
+momentDurationFormatSetup(moment)
+
 export default {
   name: 'nodestable',
   components: { nodeInfo },
-  props: [],
   data () {
     return {
       showResult: false,
@@ -10,133 +16,64 @@ export default {
       expanded: [],
       searchNodes: '',
       headers: [
-        {
-          text: 'Node',
-          align: 'left',
-          sortable: false,
-          value: 'name'
-        },
-        { text: 'Uptime', value: 'calories' },
-        { text: 'Version', value: 'fat' },
-        { text: 'ID', value: 'carbs' },
-        { text: 'Farmer', value: 'protein' },
+        { text: 'ID', value: 'id' },
+        { text: 'Uptime', value: 'uptime' },
+        { text: 'Version', value: 'version' },
+        { text: 'Farmer', value: 'farmer' },
         { text: 'Status', value: 'status', align: 'center' }
-      ],
-      items: [
-        {
-          name: 'Node 1',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: '14%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 2',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: '8%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 3',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: '6%',
-          status: 'Not active'
-        },
-        {
-          name: 'Node 4',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 5',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 6',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Not active'
-        },
-        {
-          name: 'Node 7',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 8',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 9',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 10',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          status: 'Active'
-        }
       ]
     }
   },
   computed: {
+    ...mapGetters([
+      'nodeslist',
+      'farmslist'
+    ]),
+    // Parse nodelist to table format here
+    parsedNodesList: function () {
+      const parsedNodes = this.nodeslist.map((node) => {
+        const uptime = moment.duration(node.uptime, 'seconds').format()
 
-  },
-  mounted () {
+        const farmer = find(this.farmslist, farmer => {
+          return farmer.id.toString() === node.farm_id
+        })
 
+        // initialize farmer name with farmer_id from node incase farmer is not found
+        let farmerName = node.farm_id
+        if (farmer) {
+          farmerName = farmer.name
+        }
+
+        return {
+          uptime,
+          version: node.os_version,
+          id: node.node_id,
+          farmer: farmerName,
+          name: 'node ' + node.node_id,
+          totalResources: node.total_resources,
+          updated: new Date(node.updated * 1000),
+          status: this.getStatus(node),
+          location: node.location
+        }
+      })
+      return parsedNodes
+    }
   },
   methods: {
-    getColor (status) {
-      if (status === 'Active') return 'green'
-      else return 'red'
-    }
+    getStatus(node) {
+      const { updated } = node
+      const startTime = moment()
+      const end = moment.unix(updated)
+      const minutes = startTime.diff(end, 'minutes')
 
+      // if updated difference in minutes with now is less then 10 minutes, node is up
+      if (minutes < 15) return { color: 'green', status: 'up' }
+      else if (16 < minutes && minutes < 20) return { color: 'orange', status: 'likely down' }
+      else return { color: 'red', status: 'down' }
+    },
+    truncateString(str) {
+      if (str.length < 10) return str
+      return str.substr(0, 10) + '...'
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { Line, mixins } from 'vue-chartjs'
-import colors from 'vuetify/lib/util/colors'
+// import colors from 'vuetify/lib/util/colors'
 const { reactiveProp } = mixins
 export default {
   extends: Line,

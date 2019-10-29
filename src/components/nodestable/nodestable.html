@@ -6,21 +6,49 @@
           <v-spacer/>
           <v-text-field class="pt-0" dark v-model="searchNodes" append-icon="fa-search" label="Search" single-line hide-details>
           </v-text-field>
-          
+
         </v-card-title>
         <v-card-text>
           <v-flex class="ml-3">
             <v-layout column justify-space-around>
-              <v-data-table show-expand item-key="name" :search="searchNodes" :headers="headers" :items="items" :items-per-page="10"
+              <v-data-table show-expand item-key="name" :search="searchNodes" :headers="headers" :items="parsedNodesList" :items-per-page="10"
                 single-expand :expanded.sync="expanded">
+                <template v-slot:item.farmer="{ item }">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <span v-on="on">{{ truncateString(item.farmer) }}</span>
+                    </template>
+                    <span>{{ item.farmer }}</span>
+                  </v-tooltip>
+                </template>
+
+                <template v-slot:item.version="{ item }">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <span v-on="on">{{ truncateString(item.version) }}</span>
+                    </template>
+                    <span>{{ item.version }}</span>
+                  </v-tooltip>
+                </template>
+
+                <template v-slot:item.uptime="{ item }">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <span v-on="on">{{ truncateString(item.uptime) }}</span>
+                    </template>
+                    <span>{{ item.uptime }}</span>
+                  </v-tooltip>
+                </template>
+
                 <template v-slot:item.status="{ item }">
                   <p class="text-center mt-1 mb-0 ">
-                    <v-chip :color="getColor(item.status)" dark>{{ item.status }}</v-chip>
+                    <v-chip :color="item.status.color" dark>{{ item.status.status }}</v-chip>
                   </p>
-                  </template>
-                <template v-slot:expanded-item="{ headers }">
+                </template>
+
+                <template v-slot:expanded-item="{ headers, item }">
                   <td :colspan="headers.length">
-                    <nodeInfo/>
+                    <nodeInfo :key="item.id" :node=item />
                   </td>
                 </template>
               </v-data-table>
