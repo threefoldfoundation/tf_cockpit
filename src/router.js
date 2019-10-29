@@ -56,7 +56,7 @@ export default new Router({
     {
       path: '/farmmanagement',
       name: 'FarmManagement',
-      component: () => import(/* webpackChunkName: "chat-page" */ './views/farmmanagement'),
+      component: () => import(/* webpackChunkName: "chat-page" */ './views/farmManagement'),
       meta: {
         icon: 'fas fa-tractor',
         position: 'bottom',
