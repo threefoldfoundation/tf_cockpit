@@ -19,5 +19,8 @@ export default ({
         farm
       }
     })
+  },
+  getNodes () {
+    return Axios.post(`${config.jsApiUrl}nodes/list`)
   }
 })

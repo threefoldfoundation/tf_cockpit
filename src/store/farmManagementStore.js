@@ -1,7 +1,8 @@
 import farmManagementService from '../services/farmManagementService'
 export default ({
   state: {
-    farms: []
+    farms: [],
+    nodes: []
   },
   actions: {
     getFarms: (context) => {
@@ -18,6 +19,12 @@ export default ({
       farmManagementService.updateFarm(farm.id, farm).then(response => {
         context.dispatch('getFarms')
       })
+    },
+    getNodes: (context, farm_id) => {
+      console.log(farm_id)
+      farmManagementService.getNodes().then(response => {
+        context.commit('setNodes', response.data.nodes)
+      })
     }
   },
   mutations: {
@@ -25,6 +32,7 @@ export default ({
     addFarm: (state, farm) => { state.farms.push(farm) }
   },
   getters: {
-    farms: (state) => state.farms
+    farms: (state) => state.farms,
+    nodes: (state) => state.nodes
   }
 })

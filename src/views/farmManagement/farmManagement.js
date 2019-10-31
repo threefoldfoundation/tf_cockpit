@@ -8,6 +8,7 @@ export default {
   data () {
     return {
       addFarmDialog: false,
+      addNodeDialog: false,
       settingsDialog: false,
       companyRegistrationNumber: 'BE 0684 939 2659',
       farmDescription: 'This farm is located in the 3fold office in Lochristi',
@@ -36,48 +37,16 @@ export default {
       ],
       nodeHeaders: [
         {
-          text: 'Node',
+          text: 'Node ID',
           align: 'left',
           sortable: false,
-          value: 'name'
+          value: 'node_id'
         },
-        { text: 'Uptime', value: 'calories' },
-        { text: 'Version', value: 'fat' },
+        { text: 'OS version', value: 'os_version' },
+        { text: 'Uptime', value: 'uptime' },
         { text: 'ID', value: 'carbs' },
-        { text: 'Farmer', value: 'farmer' },
+        { text: 'Address', value: 'address' },
         { text: 'Status', value: 'status', align: 'center' }
-      ],
-      nodeItems: [
-        {
-          name: 'Node 1',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          farmer: 'kdespiegeleer',
-          sodium: 87,
-          calcium: '14%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 2',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          farmer: 'kdespiegeleer',
-          sodium: 129,
-          calcium: '8%',
-          status: 'Active'
-        },
-        {
-          name: 'Node 3',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          farmer: 'medeweerdt',
-          sodium: 337,
-          calcium: '6%',
-          status: 'Not active'
-        }
       ],
       newFarm: {
         // TODO  make this dynamic
@@ -90,7 +59,7 @@ export default {
           longitude: 0
         },
         resource_prices: [{
-          currency: '',
+          currency: 'USD',
           cru: 0,
           mru: 0,
           hru: 0,
@@ -103,7 +72,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'farms'
+      'farms',
+      'nodes'
     ]),
     parsedLocation () {
       return {
@@ -119,10 +89,12 @@ export default {
     ...mapActions([
       'registerFarm',
       'getFarms',
-      'updateFarm'
+      'updateFarm',
+      'getNodes'
     ]),
     viewNodes (item) {
       this.farmSelected = item
+      this.getNodes(this.farmSelected.id)
     },
     viewSettings (farm) {
       this.farmToEdit = farm
