@@ -3,28 +3,28 @@ export default {
   name: 'capacityselector',
   components: {},
   props: ['icon', 'label'],
-  data () {
+  data() {
     let max = 0
     let range = []
     switch (this.label) {
       case 'CRU': {
         max = 64
-        range = [8, 58]
+        range = [0, 58]
         break
       }
       case 'HRU': {
         max = 5000
-        range = [500, 4500]
+        range = [0, 4500]
         break
       }
       case 'MRU': {
         max = 512
-        range = [50, 460]
+        range = [0, 460]
         break
       }
       case 'SRU': {
         max = 5000
-        range = [500, 4500]
+        range = [0, 4500]
         break
       }
     }
