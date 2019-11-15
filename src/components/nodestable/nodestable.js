@@ -35,10 +35,10 @@ export default {
         const uptime = moment.duration(node.uptime, 'seconds').format()
 
         const farmer = find(this.farmslist, farmer => {
-          return farmer.id.toString() === node.farm_id
+          return farmer.id === node.farm_id
         })
 
-        // initialize farmer name with farmer_id from node incase farmer is not found
+        // initialize farmer name with farmer_id from node in case farmer is not found
         let farmerName = node.farm_id
         if (farmer) {
           farmerName = farmer.name
