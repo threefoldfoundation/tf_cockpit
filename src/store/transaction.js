@@ -10,21 +10,24 @@ export default ({
     nodesList: [],
     originalNodesList: [],
     countries: 0,
-    cores: 0
+    cru: 0,
+    mru: 0,
+    sru: 0,
+    hru: 0
   },
   actions: {
-    getRegistered3Bots (context) {
+    getRegistered3Bots(context) {
       tfService.registered3bots().then(response => {
         console.log('nodes', response.data)
         context.commit('setRegistered3Bots', response.data.nodes.length)
         context.commit('setNodesList', response.data.nodes)
         context.commit('setOriginalNodesList', response.data.nodes)
         context.commit('setCountriesFromNodes', response.data.nodes)
-        context.commit('setCoresFromNodes', response.data.nodes)
+        context.commit('setRUfromNodes', response.data.nodes)
         context.commit('setNodesOnline', response.data.nodes)
       })
     },
-    getRegisteredFarms (context) {
+    getRegisteredFarms(context) {
       tfService.registeredfarms().then(response => {
         console.log('farms', response.data)
         context.commit('setRegisteredFarms', response.data.farms.length)
@@ -33,28 +36,31 @@ export default ({
     }
   },
   mutations: {
-    setRegistered3Bots (state, value) {
+    setRegistered3Bots(state, value) {
       state.registered3bots = value
     },
-    setRegisteredFarms (state, value) {
+    setRegisteredFarms(state, value) {
       state.registeredFarms = value
     },
-    setFarmsList (state, value) {
+    setFarmsList(state, value) {
       state.farmsList = value
     },
-    setNodesList (state, value) {
+    setNodesList(state, value) {
       state.nodesList = value
     },
-    setOriginalNodesList (state, value) {
+    setOriginalNodesList(state, value) {
       state.originalNodesList = value
     },
-    setCountriesFromNodes (state, value) {
+    setCountriesFromNodes(state, value) {
       state.countries = uniqBy(value, node => node.location.country).length
     },
-    setCoresFromNodes (state, value) {
-      state.cores = sumBy(value, node => node.total_resources.cru)
+    setRUfromNodes(state, value) {
+      state.cru = sumBy(value, node => node.total_resources.cru)
+      state.mru = sumBy(value, node => node.total_resources.mru)
+      state.sru = sumBy(value, node => node.total_resources.sru)
+      state.hru = sumBy(value, node => node.total_resources.hru)
     },
-    setNodesOnline (state, value) {
+    setNodesOnline(state, value) {
       state.onlinenodes = value.length
     }
   },
@@ -64,7 +70,10 @@ export default ({
     farmslist: (state) => state.farmsList,
     nodeslist: (state) => state.nodesList,
     originalNodesList: (state) => state.originalNodesList,
-    cores: (state) => state.cores,
+    cru: (state) => state.cru,
+    mru: (state) => state.mru,
+    sru: (state) => state.sru,
+    hru: (state) => state.hru,
     countries: (state) => state.countries,
     onlinenodes: (state) => state.onlinenodes
   }
