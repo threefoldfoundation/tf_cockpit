@@ -144,8 +144,14 @@ export default {
   mounted() {}
 };
 </script>
-
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+html, body {
+  font-family: 'Lato', sans-serif;
+}
+#app {
+  font-family: 'Lato', sans-serif;
+}
 .content {
   background: #fafafa !important;
 }
