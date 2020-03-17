@@ -3,36 +3,36 @@
     <v-flex md12>
       <v-col class="pt-0">
         <v-row>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="registered3bots" title="Registered Nodes" />
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="registered3bots" title="Registered Nodes" />
           </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="onlinenodes" title="Nodes online" />
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="onlinenodes" title="Nodes online" />
           </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="countries" title="Countries" />
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="countries" title="Countries" />
           </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="registeredfarms" title="Farms" />
-          </v-flex>
-        </v-row>
-        <v-row>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="cru" title="Cores online" />
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="mru" append="GB" title="Memory online" />
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="sru" append="GB" title="SSD Storage capacity" />
-          </v-flex>
-          <v-flex md3 xs6 d-flex class="pa-2">
-            <miniGraph :value="hru" append="GB" title="HDD Storage capacity" />
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="registeredfarms" title="Farms" />
           </v-flex>
         </v-row>
         <v-row>
-          <v-flex class="ma-2" d-flex md4>
-            <capacityMap style="width: 100%;" />
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="cru" title="Cores online" />
+          </v-flex>
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="mru" append="GB" title="Memory online" />
+          </v-flex>
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="sru" append="GB" title="SSD Storage capacity" />
+          </v-flex>
+          <v-flex md3 xs6 d-flex class="pa-2 others">
+            <miniGraph class="others" :value="hru" append="GB" title="HDD Storage capacity" />
+          </v-flex>
+        </v-row>
+        <v-row>
+          <v-flex class="ma-2 others" d-flex md4>
+            <capacityMap class="others" style="width: 100%;" />
           </v-flex>
           <v-flex class="ma-2" d-flex>
             <nodesTable style="height: 100%; width:100%;" />

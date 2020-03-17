@@ -21,7 +21,8 @@ export default {
         { text: 'Version', value: 'version' },
         { text: 'Farmer', value: 'farmer' },
         { text: 'Status', value: 'status', align: 'center' }
-      ]
+      ],
+      hidOthers: false
     }
   },
   computed: {
@@ -60,7 +61,7 @@ export default {
     }
   },
   methods: {
-    getStatus(node) {
+    getStatus (node) {
       const { updated } = node
       const startTime = moment()
       const end = moment.unix(updated)
@@ -68,12 +69,28 @@ export default {
 
       // if updated difference in minutes with now is less then 10 minutes, node is up
       if (minutes < 15) return { color: 'green', status: 'up' }
-      else if (16 < minutes && minutes < 20) return { color: 'orange', status: 'likely down' }
+      else if (minutes > 16 && minutes < 20) return { color: 'orange', status: 'likely down' }
       else return { color: 'red', status: 'down' }
     },
-    truncateString(str) {
+    truncateString (str) {
       if (str.length < 10) return str
       return str.substr(0, 10) + '...'
+    },
+    hideOthers () {
+      var all = document.getElementsByClassName('others')
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = 'none'
+        all[i].classList.remove('flex')
+      }
+      this.hidOthers = true
+    },
+    showOthers () {
+      var all = document.getElementsByClassName('others')
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = 'block'
+        all[i].classList.add('flex')
+      }
+      this.hidOthers = false
     }
   }
 }

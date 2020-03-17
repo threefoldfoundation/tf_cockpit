@@ -6,7 +6,9 @@
           <v-spacer/>
           <v-text-field class="pt-0" dark v-model="searchNodes" append-icon="fa-search" label="Search" single-line hide-details>
           </v-text-field>
-
+          <v-spacer/>
+          <i v-if="hidOthers" @click="showOthers" class="fas fa-compress-arrows-alt nesw-resize"></i>
+          <i v-else @click="hideOthers"  class="fas fa-expand-alt nesw-resize"></i>
         </v-card-title>
         <v-card-text>
           <v-flex class="ml-3">

@@ -7,7 +7,7 @@ export default {
   name: 'capacity',
   components: { miniGraph, capacityMap, scrollablecard, nodesTable },
   props: [],
-  data() {
+  data () {
     return {
     }
   },
@@ -23,7 +23,7 @@ export default {
       'onlinenodes'
     ])
   },
-  mounted() {
+  mounted () {
     this.getRegistered3Bots()
     this.getRegisteredFarms()
   },

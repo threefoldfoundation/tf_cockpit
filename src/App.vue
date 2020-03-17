@@ -147,11 +147,12 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 html, body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif !important;
 }
 #app {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif !important;
 }
+
 .content {
   background: #fafafa !important;
 }
