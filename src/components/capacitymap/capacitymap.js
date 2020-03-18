@@ -48,9 +48,13 @@ export default {
   },
   methods: {
     setSelected (value) {
-      if (value === 'All') return this.setNodesList(this.originalNodesList)
+      if (value === 'All') {
+        this.$emit('CustomEventInputChanged', '')
+        return this.setNodesList(this.originalNodesList)
+      }
       const filteredNodes = this.originalNodesList.filter(node => node.farm_id.toString() === value.id.toString())
       this.setNodesList(filteredNodes)
+      this.$emit('CustomEventInputChanged', value.name.toString())
     },
     ...mapMutations({
       setNodesList: 'setNodesList'

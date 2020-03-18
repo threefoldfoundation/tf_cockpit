@@ -9,12 +9,12 @@ momentDurationFormatSetup(moment)
 export default {
   name: 'nodestable',
   components: { nodeInfo },
+  props: ['searchNodes'],
   data () {
     return {
       showResult: false,
       itemsPerPage: 4,
       expanded: [],
-      searchNodes: '',
       headers: [
         { text: 'ID', value: 'id' },
         { text: 'Uptime', value: 'uptime' },

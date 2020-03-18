@@ -9,6 +9,7 @@ export default {
   props: [],
   data () {
     return {
+      selectedNode: ''
     }
   },
   computed: {
@@ -31,6 +32,9 @@ export default {
     ...mapActions([
       'getRegistered3Bots',
       'getRegisteredFarms'
-    ])
+    ]),
+    changeSelectedNode (data) {
+      this.selectedNode = data
+    }
   }
 }

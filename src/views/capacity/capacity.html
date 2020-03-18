@@ -32,10 +32,10 @@
         </v-row>
         <v-row>
           <v-flex class="ma-2 others" d-flex md4>
-            <capacityMap class="others" style="width: 100%;" />
+            <capacityMap @CustomEventInputChanged="changeSelectedNode" class="others" style="width: 100%;" />
           </v-flex>
           <v-flex class="ma-2" d-flex>
-            <nodesTable style="height: 100%; width:100%;" />
+            <nodesTable :searchNodes="selectedNode" style="height: 100%; width:100%;" />
           </v-flex>
         </v-row>
       </v-col>
