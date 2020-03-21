@@ -6,12 +6,12 @@ export default ({
   actions: {
     getFarms: (context) => {
       farmManagementService.getFarms().then(response => {
-        context.commit('setFarms', response.data.farms)
+        context.commit('setFarms', response.data)
       })
     },
     registerFarm: (context, farm) => {
       farmManagementService.registerFarm(farm).then(response => {
-        context.commit('addFarm', response.data.farm)
+        context.commit('addFarm', response.data)
       })
     },
     updateFarm: (context, farm) => {

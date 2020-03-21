@@ -19,19 +19,19 @@ export default ({
     getRegistered3Bots(context) {
       tfService.registered3bots().then(response => {
         console.log('nodes', response.data)
-        context.commit('setRegistered3Bots', response.data.nodes.length)
-        context.commit('setNodesList', response.data.nodes)
-        context.commit('setOriginalNodesList', response.data.nodes)
-        context.commit('setCountriesFromNodes', response.data.nodes)
-        context.commit('setRUfromNodes', response.data.nodes)
-        context.commit('setNodesOnline', response.data.nodes)
+        context.commit('setRegistered3Bots', response.data.length)
+        context.commit('setNodesList', response.data)
+        context.commit('setOriginalNodesList', response.data)
+        context.commit('setCountriesFromNodes', response.data)
+        context.commit('setRUfromNodes', response.data)
+        context.commit('setNodesOnline', response.data)
       })
     },
     getRegisteredFarms(context) {
       tfService.registeredfarms().then(response => {
         console.log('farms', response.data)
-        context.commit('setRegisteredFarms', response.data.farms.length)
-        context.commit('setFarmsList', response.data.farms)
+        context.commit('setRegisteredFarms', response.data.length)
+        context.commit('setFarmsList', response.data)
       })
     }
   },

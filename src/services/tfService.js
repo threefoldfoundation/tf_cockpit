@@ -1,19 +1,19 @@
 import axios from 'axios'
 import config from '../../public/config'
 export default ({
-  registered3bots () {
-    return axios.post(`${config.tfApiUrl}nodes/list`)
+  registered3bots() {
+    return axios.get(`${config.tfApiUrl}nodes?size=1000`)
   },
-  registeredfarms () {
-    return axios.post(`${config.tfApiUrl}farms/list`)
+  registeredfarms() {
+    return axios.get(`${config.tfApiUrl}farms?size=1000`)
   },
-  news () {
-    return axios.post(`${config.tfApiUrl}news/list`)
+  news() {
+    return axios.get(`${config.tfApiUrl}news`)
   },
-  getExplorerConstants () {
+  getExplorerConstants() {
     return axios.get(`${config.tfExplorerUrl}`)
   },
-  getExplorerBlockByHeight (height) {
+  getExplorerBlockByHeight(height) {
     return axios.get(`${config.tfExplorerUrl}/blocks/${height}`)
   }
 })
