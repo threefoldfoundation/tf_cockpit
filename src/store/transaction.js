@@ -1,80 +1,104 @@
 import tfService from '../services/tfService'
-import { uniqBy, sumBy } from 'lodash'
+import lodash from 'lodash'
 
+const namespaced = true
 export default ({
   state: {
-    registered3bots: 0,
-    onlinenodes: 0,
-    registeredFarms: 0,
-    farmsList: [],
-    nodesList: [],
-    originalNodesList: [],
-    countries: 0,
-    cru: 0,
-    mru: 0,
-    sru: 0,
-    hru: 0
+    user: {},
+    registeredNodes: [],
+    nodes: undefined,
+    registeredFarms: [],
+    farms: [],
+    nodeSpecs: {
+      amountregisteredNodes: 0,
+      amountregisteredFarms: 0,
+      countries: 0,
+      onlinenodes: 0,
+      cru: 0,
+      mru: 0,
+      sru: 0,
+      hru: 0
+    }
   },
   actions: {
-    getRegistered3Bots(context) {
+    getName: async context => {
+      var response = await tfService.getName()
+      return response.data.name
+    },
+    getUser: async context => {
+      var name = await context.dispatch('getName')
+      var response = await tfService.getUser(name)
+      context.commit('setUser', response.data)
+    },
+    getRegisteredNodes(context) {
       tfService.registered3bots().then(response => {
-        console.log('nodes', response.data)
-        context.commit('setRegistered3Bots', response.data.length)
-        context.commit('setNodesList', response.data)
-        context.commit('setOriginalNodesList', response.data)
-        context.commit('setCountriesFromNodes', response.data)
-        context.commit('setRUfromNodes', response.data)
-        context.commit('setNodesOnline', response.data)
+        context.commit('setRegisteredNodes', response.data)
+        context.commit('setTotalSpecs', response.data)
       })
     },
-    getRegisteredFarms(context) {
-      tfService.registeredfarms().then(response => {
-        console.log('farms', response.data)
-        context.commit('setRegisteredFarms', response.data.length)
-        context.commit('setFarmsList', response.data)
+    getRegisteredFarms(context, farm_id) {
+      tfService.registeredfarms(farm_id).then(response => {
+        context.commit('setAmountOfFarms', response.data)
+        context.commit('setRegisteredFarms', response.data)
       })
+    },
+    getFarms: context => {
+      tfService.getFarms(context.getters.user.id).then(response => {
+        context.commit('setFarms', response.data)
+      })
+    },
+    resetNodes: context => {
+      context.commit('setNodes', undefined)
     }
   },
   mutations: {
-    setRegistered3Bots(state, value) {
-      state.registered3bots = value
+    setRegisteredNodes(state, value) {
+      state.registeredNodes = value
     },
     setRegisteredFarms(state, value) {
       state.registeredFarms = value
     },
-    setFarmsList(state, value) {
-      state.farmsList = value
+    setFarms(state, value) {
+      state.farms = value
     },
-    setNodesList(state, value) {
-      state.nodesList = value
+    setNodes(state, value) {
+      state.nodes = value
     },
-    setOriginalNodesList(state, value) {
-      state.originalNodesList = value
+    setUser: (state, user) => {
+      state.user = user
     },
-    setCountriesFromNodes(state, value) {
-      state.countries = uniqBy(value, node => node.location.country).length
+    setAmountOfFarms(state, value) {
+      state.nodeSpecs.amountregisteredFarms = value.length
     },
-    setRUfromNodes(state, value) {
-      state.cru = sumBy(value, node => node.total_resources.cru)
-      state.mru = sumBy(value, node => node.total_resources.mru)
-      state.sru = sumBy(value, node => node.total_resources.sru)
-      state.hru = sumBy(value, node => node.total_resources.hru)
-    },
-    setNodesOnline(state, value) {
-      state.onlinenodes = value.length
+    setTotalSpecs(state, value) {
+      state.nodeSpecs.amountregisteredNodes = value.length
+      state.nodeSpecs.onlinenodes = countOnlineNodes(value)
+      state.nodeSpecs.countries = lodash.uniqBy(
+        value,
+        node => node.location.country
+      ).length
+      state.nodeSpecs.cru = lodash.sumBy(value, node => node.total_resources.cru)
+      state.nodeSpecs.mru = lodash.sumBy(value, node => node.total_resources.mru)
+      state.nodeSpecs.sru = lodash.sumBy(value, node => node.total_resources.sru)
+      state.nodeSpecs.hru = lodash.sumBy(value, node => node.total_resources.hru)
     }
   },
   getters: {
-    registered3bots: (state) => state.registered3bots,
-    registeredfarms: (state) => state.registeredFarms,
-    farmslist: (state) => state.farmsList,
-    nodeslist: (state) => state.nodesList,
-    originalNodesList: (state) => state.originalNodesList,
-    cru: (state) => state.cru,
-    mru: (state) => state.mru,
-    sru: (state) => state.sru,
-    hru: (state) => state.hru,
-    countries: (state) => state.countries,
-    onlinenodes: (state) => state.onlinenodes
+    user: state => state.user,
+    registeredNodes: state => state.registeredNodes,
+    nodes: state => state.nodes,
+    registeredFarms: state => state.registeredFarms,
+    farms: state => state.farms,
+    nodeSpecs: state => state.nodeSpecs
   }
 })
+
+function countOnlineNodes(data) {
+  let onlinecounter = 0
+  data.forEach(node => {
+    const timestamp = new Date().getTime() / 1000
+    const minutes = (timestamp - node.updated) / 60
+    if (minutes < 20) onlinecounter++
+  })
+  return onlinecounter
+}

@@ -7,22 +7,18 @@ export default {
   name: 'capacitymap',
   components: { capacityselector, nodeinfo },
   props: [],
-  data () {
+  data() {
     return {
       select: { text: 'All', value: 'All' }
     }
   },
   computed: {
-    ...mapGetters([
-      'farmslist',
-      'nodeslist',
-      'originalNodesList'
-    ]),
+    ...mapGetters(['registeredFarms', 'registeredNodes']),
     allFarmsList: function () {
-      const allFarmers = this.farmslist.map(f => {
+      const allFarmers = this.registeredFarms.map(farm => {
         return {
-          value: f,
-          text: f.name
+          value: farm,
+          text: farm.name
         }
       })
       allFarmers.push({ text: 'All', value: 'All' })
@@ -30,11 +26,14 @@ export default {
     },
     nodeLocation: function () {
       // Group nodes by country
-      const groupedNodeLocations = groupBy(this.nodeslist, node => node.location.country)
+      const groupedNodeLocations = _.groupBy(
+        this.nodes,
+        node => node.location.country
+      )
 
       const nodeLocations = []
       // Map expect type [[country, count], ...]
-      map(groupedNodeLocations, (groupedLocation, key) => {
+      _.map(groupedNodeLocations, (groupedLocation, key) => {
         const numberOfNodesInLocation = []
         const count = groupedLocation.length
         numberOfNodesInLocation.push(key, count)
@@ -44,16 +43,19 @@ export default {
       return nodeLocations
     }
   },
-  mounted () {
-  },
+  mounted() { },
   methods: {
-    setSelected (value) {
-      if (value === 'All') return this.setNodesList(this.originalNodesList)
-      const filteredNodes = this.originalNodesList.filter(node => node.farm_id.toString() === value.id.toString())
-      this.setNodesList(filteredNodes)
+    setSelected(value) {
+      if (value === 'All') {
+        this.$emit('custom-event-input-changed', '')
+        return this.setNodes(this.registeredNodes)
+      }
+      const filteredNodes = this.registeredNodes.filter(
+        node => node.farm_id.toString() === value.id.toString()
+      )
+      this.setNodes(filteredNodes)
+      this.$emit('custom-event-input-changed', value.name.toString())
     },
-    ...mapMutations({
-      setNodesList: 'setNodesList'
-    })
+    ...mapMutations(['setNodes'])
   }
 }

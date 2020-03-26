@@ -1,5 +1,5 @@
-import { mapGetters, mapActions } from "vuex"
-import { timingSafeEqual } from "crypto"
+import { mapGetters, mapActions } from 'vuex'
+import { timingSafeEqual } from 'crypto'
 
 export default {
   name: 'farmManagement',
