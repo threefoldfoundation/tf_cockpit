@@ -1,4 +1,5 @@
 export default ({
-  tfApiUrl: 'https://explorer.testnet.grid.tf/web/gedis/http/',
-  tfExplorerUrl: 'https://explorer.threefoldtoken.com/explorer',
+  tfApiUrl: 'https://explorer.testnet.grid.tf/explorer/',
+  tfExplorerUrl: 'https://explorer.threefoldtoken.com/explorer'
+
 })

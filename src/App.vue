@@ -54,67 +54,31 @@
         <v-row class="pa-4 mx-1">
           <h1 class="headline pt-0 pb-1 text-uppercase">
             <span>TF</span>
-            <span class="font-weight-light">cockpit</span>
+            <span class="font-weight-light">explorer</span>
             <span class="title font-weight-light">- {{$route.meta.displayName}}</span>
           </h1>
           <v-spacer />
-          <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
-            <template v-slot:activator="{ on }">
-              <v-badge overlap left v-model="showBadge" color="secondary">
-                <template v-slot:badge>
-                  <span>1</span>
-                </template>
-                <v-btn text icon v-on="on">
-                  <v-icon>far fa-bell mr-2</v-icon>
-                </v-btn>
-              </v-badge>
-            </template>
-
-            <v-card>
-              <v-list>
-                <v-list-item>
-                  <v-list-item-avatar>
-                    <v-icon>fas fa-plus</v-icon>
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title>A new node wants to join your farm</v-list-item-title>
-                  </v-list-item-content>
-
-                  <v-list-item-action>
-                    <v-btn icon></v-btn>
-                  </v-list-item-action>
-                </v-list-item>
-              </v-list>
-
-              <v-divider></v-divider>
-
-              <v-list>
-                <v-list-item>
-                  <v-list-item-title>Node Id: Lochristi34</v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Node name: Lochristi Node 34</v-list-item-title>
-                </v-list-item>
-              </v-list>
-
-              <v-card-actions>
-                <div class="flex-grow-1"></div>
-
-                <v-btn text @click="menu = false">Deny</v-btn>
-                <v-btn color="primary" text @click="menu = false">Allow</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-menu>
-          <v-btn icon>
-            <v-icon>fas fa-user-circle</v-icon>
-          </v-btn>
         </v-row>
         <router-view></router-view>
       </v-col>
     </v-content>
-    <v-bottom-navigation v-if="$vuetify.breakpoint.mdAndDown" grow dark class="primary topround" app fixed shift :value="$route.name">
-      <v-btn :value="route.name" icon v-for="(route, i) in routes" :key="i" @click="$router.push(route)">
+    <v-bottom-navigation
+      v-if="$vuetify.breakpoint.mdAndDown"
+      grow
+      dark
+      class="primary topround"
+      app
+      fixed
+      shift
+      :value="$route.name"
+    >
+      <v-btn
+        :value="route.name"
+        icon
+        v-for="(route, i) in routes"
+        :key="i"
+        @click="$router.push(route)"
+      >
         <span>{{route.meta.displayName}}</span>
         <v-icon>{{route.meta.icon}}</v-icon>
       </v-btn>

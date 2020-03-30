@@ -36,21 +36,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'nodeslist',
-      'originalNodesList'
-    ])
+    ...mapGetters(['registeredNodes'])
   },
   methods: {
-    handleInput (value) {
+    handleInput(value) {
       const [min, max] = value
-      let filteredNodes = this.originalNodesList
-        .filter(node => node.total_resources[this.label.toLowerCase()] <= max && node.total_resources[this.label.toLowerCase()] >= min)
+      let filteredNodes = this.registeredNodes.filter(
+        node =>
+          node.total_resources[this.label.toLowerCase()] <= max &&
+          node.total_resources[this.label.toLowerCase()] >= min
+      )
 
-      this.setNodesList(filteredNodes)
+      this.setNodes(filteredNodes)
     },
-    ...mapMutations({
-      setNodesList: 'setNodesList'
-    })
+    ...mapMutations(['setNodes'])
   }
 }

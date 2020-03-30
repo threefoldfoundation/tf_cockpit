@@ -5,32 +5,35 @@ import scrollablecard from '../../components/scrollablecard'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'capacity',
-  components: { miniGraph, capacityMap, scrollablecard, nodesTable },
+  components: { miniGraph, capacityMap, nodesTable, scrollablecard },
   props: [],
-  data() {
+  data () {
     return {
+      showDialog: false,
+      dilogTitle: 'title',
+      dialogBody: '',
+      dialogActions: [],
+      dialogImage: null,
+      block: null,
+      showBadge: true,
+      menu: false,
+      selectedNode: ''
     }
   },
   computed: {
     ...mapGetters([
-      'registered3bots',
-      'registeredfarms',
-      'cru',
-      'mru',
-      'sru',
-      'hru',
-      'countries',
-      'onlinenodes'
+      'nodeSpecs',
+      'registeredNodes'
     ])
   },
-  mounted() {
-    this.getRegistered3Bots()
+  mounted () {
+    this.getRegisteredNodes()
     this.getRegisteredFarms()
   },
   methods: {
-    ...mapActions([
-      'getRegistered3Bots',
-      'getRegisteredFarms'
-    ])
+    ...mapActions(['getRegisteredNodes', 'getRegisteredFarms']),
+    changeSelectedNode (data) {
+      this.selectedNode = data
+    }
   }
 }
