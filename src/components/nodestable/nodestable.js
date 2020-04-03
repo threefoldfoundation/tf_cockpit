@@ -68,7 +68,8 @@ export default {
           usedResources: node.used_resources,
           updated: new Date(node.updated * 1000),
           status: this.getStatus(node),
-          location: node.location
+          location: node.location,
+          freeToUse: node.free_to_use,
         }
       })
       return parsedNodes
