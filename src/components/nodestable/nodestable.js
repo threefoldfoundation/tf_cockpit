@@ -13,7 +13,7 @@ export default {
   components: { nodeInfo },
   data () {
     return {
-      hideOffline: true,
+      showOffline: false,
       storeName: '',
       showDialog: false,
       dilogTitle: 'title',
@@ -65,7 +65,7 @@ export default {
           updated: new Date(node.updated * 1000),
           status: this.getStatus(node),
           location: node.location,
-          freeToUse: node.free_to_use,
+          freeToUse: node.free_to_use
         }
       })
       return parsedNodes
@@ -90,7 +90,7 @@ export default {
       if (this.farmselected && this.farmselected.id !== node.farm_id) {
         return false
       }
-      if (this.hideOffline && this.getStatus(node)['status'] === 'down') {
+      if (!this.showOffline && this.getStatus(node)['status'] === 'down') {
         return false
       }
 

@@ -12,9 +12,20 @@
         </v-text-field>
         <v-spacer></v-spacer>
         
-        <v-btn icon v-if="othersHidden" @click="showOthers"><v-icon small color="white" right>fas fa-compress-arrows-alt </v-icon></v-btn>
-        <v-btn icon v-else @click="hideOthers"><v-icon small color="white" right>fas fa-expand</v-icon></v-btn>
-        <v-switch color="white" label="Show offline nodes" v-model="hideOffline" hide-details></v-switch color="white">
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-switch v-on="on" inset color="white" v-model="showOffline" hide-details></v-switch>
+          </template>
+          <span>Show offline nodes</span>
+        </v-tooltip>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn icon  v-on="on" v-if="othersHidden" @click="showOthers"><v-icon small color="white" right>fas fa-compress-arrows-alt </v-icon></v-btn>
+            <v-btn icon  v-on="on" v-else @click="hideOthers"><v-icon small color="white" right>fas fa-expand</v-icon></v-btn>
+          </template>
+          <span>Full screen</span>
+        </v-tooltip>
 
         </v-card-title>
         <v-card-text>
