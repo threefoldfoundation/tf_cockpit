@@ -11,8 +11,9 @@ export default {
   props: ['farmselected', 'searchnodes', 'registerednodes'],
 
   components: { nodeInfo },
-  data() {
+  data () {
     return {
+      hideOffline: true,
       storeName: '',
       showDialog: false,
       dilogTitle: 'title',
@@ -37,17 +38,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'registeredFarms',
-      'nodes'
-    ]),
+    ...mapGetters(['registeredFarms', 'nodes']),
     // Parse nodelist to table format here
     parsedNodesList: function () {
       const nodeList = this.nodes ? this.nodes : this.registerednodes
-      const parsedNodes = nodeList.filter(node => !this.farmselected || (this.farmselected.id === node.farm_id)).map(node => {
-        const uptime = moment.duration(node.uptime, 'seconds').format()
-
-        const farmer = _.find(this.registeredFarms, farmer => {
+      const parsedNodes = nodeList.filter(node => this.showNode(node)).map(node => {
+        const farmer = find(this.registeredFarms, farmer => {
           return farmer.id === node.farm_id
         })
 
@@ -58,7 +54,7 @@ export default {
         }
 
         return {
-          uptime,
+          uptime: moment.duration(node.uptime, 'seconds').format(),
           version: node.os_version,
           id: node.node_id,
           farmer: farmerName,
@@ -75,12 +71,12 @@ export default {
       return parsedNodes
     }
   },
-  mounted() {
+  mounted () {
     this.resetNodes()
   },
   methods: {
     ...mapActions(['resetNodes']),
-    getStatus(node) {
+    getStatus (node) {
       const { updated } = node
       const startTime = moment()
       const end = moment.unix(updated)
@@ -90,21 +86,31 @@ export default {
       if (minutes < 15) return { color: 'green', status: 'up' }
       else if (minutes > 16 && minutes < 20) { return { color: 'orange', status: 'likely down' } } else return { color: 'red', status: 'down' }
     },
-    truncateString(str) {
-      //do not truncate in full screen mode
-      if (this.othersHidden == true) {
-        return str;
+    showNode (node) {
+      if (this.farmselected && this.farmselected.id !== node.farm_id) {
+        return false
+      }
+      if (this.hideOffline && this.getStatus(node)['status'] === 'down') {
+        return false
+      }
+
+      return true
+    },
+    truncateString (str) {
+      // do not truncate in full screen mode
+      if (this.othersHidden === true) {
+        return str
       }
       str = str.toString()
       if (str.length < 10) return str
       return str.substr(0, 10) + '...'
     },
-    openNodeDetails(node) {
+    openNodeDetails (node) {
       const index = this.expanded.indexOf(node)
       if (index > -1) this.expanded.splice(index, 1)
       else this.expanded.push(node)
     },
-    hideOthers() {
+    hideOthers () {
       var all = document.getElementsByClassName('others')
       for (var i = 0; i < all.length; i++) {
         all[i].style.display = 'none'
@@ -112,7 +118,7 @@ export default {
       }
       this.othersHidden = true
     },
-    showOthers() {
+    showOthers () {
       var all = document.getElementsByClassName('others')
       for (var i = 0; i < all.length; i++) {
         all[i].style.display = 'block'
